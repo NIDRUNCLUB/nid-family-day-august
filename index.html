@@ -380,7 +380,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
 
 <script>
 // ===== 載入即時報名統計 =====
-var STATS_URL='https://script.google.com/macros/s/AKfycbxNVQ9GgNcD0Tqa8m1ZRpmuavuBJAA4XKobEneW_dhBfdTO6akTvPwDpTpj-ZYSbMa8/exec?stats=1';
+var STATS_URL='https://script.google.com/macros/s/AKfycbxuAzEqOSL2psnIrsKTqkCFoxPoOMOORJ4I3f9PfrcdmEXwnyTMpHob2gd9oEbV1pCk/exec?stats=1';
 function loadStats(){
   fetch(STATS_URL).then(function(r){return r.json();}).then(function(d){
     if(d&&d.status==='ok'&&d.stats){
@@ -422,7 +422,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   }
 
   // ===== 同步資料到 Google Sheets 後台 =====
-  var GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxNVQ9GgNcD0Tqa8m1ZRpmuavuBJAA4XKobEneW_dhBfdTO6akTvPwDpTpj-ZYSbMa8/exec';
+    var GOOGLE_SCRIPT_URL='https://script.google.com/macros/s/AKfycbxuAzEqOSL2psnIrsKTqkCFoxPoOMOORJ4I3f9PfrcdmEXwnyTMpHob2gd9oEbV1pCk/exec';
 
   var form=this;
   var btn=form.querySelector('.btn-submit');
@@ -469,13 +469,22 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
 
   btn.disabled=true;
   btn.textContent='送出中…';
-  fetch(GOOGLE_SCRIPT_URL,{method:'POST',body:fd,mode:'no-cors'})
-    .then(function(){showSuccess();})
-    .catch(function(){
-      btn.disabled=false;
-      btn.textContent='SEND IT → 立刻報名';
-      alert('送出失敗，請檢查網路後再試一次');
-    });
+  fetch(GOOGLE_SCRIPT_URL,{method:'POST',body:fd})
+      .then(function(r){return r.json();})
+      .then(function(data){
+              if(data && data.status==='ok'){
+                        showSuccess();
+              }else{
+                        btn.disabled=false;
+                        btn.textContent='SEND IT → 立刻報名';
+                        alert('送出失敗：'+(data&&data.message?data.message:'請稍後再試一次'));
+              }
+      })
+      .catch(function(){
+              btn.disabled=false;
+              btn.textContent='SEND IT → 立刻報名';
+              alert('送出失敗，請檢查網路後再試一次');
+      });
 });
 </script>
 </body>

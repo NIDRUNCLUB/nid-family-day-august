@@ -70,9 +70,6 @@ section{padding:64px 24px;}
 .section-title{font-family:var(--font-display);font-size:clamp(40px,8vw,72px);line-height:1;margin-bottom:8px;}
 .section-sub{font-size:15px;max-width:560px;line-height:1.75;}
 
-.about-section{background:var(--cream);border-bottom:3px solid var(--ink);}
-.about-section .section-tag{color:var(--blue);}
-.about-section .section-sub{color:var(--muted);max-width:680px;}
 .events-section{background:var(--orange-lt);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
 .events-section .section-tag{color:var(--orange-dk);}
 .events-section .section-sub{color:var(--muted);}
@@ -183,6 +180,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
 @media(max-width:700px){
   .site-logo{width:40px;height:40px;top:12px;left:12px;}
 }
+.consent-section{background:var(--white);border:2px solid var(--ink);border-radius:var(--radius);padding:18px;margin:20px 0 16px;}
+.consent-label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;}
+.consent-label input[type="checkbox"]{margin-top:2px;width:18px;height:18px;accent-color:var(--blue);flex-shrink:0;cursor:pointer;}
+.consent-text{font-size:13px;color:var(--muted);line-height:1.6;}
 </style>
 </head>
 <body>
@@ -247,14 +248,6 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
   <div class="info-cell c-purple" style="border-right:2.5px solid var(--ink);"><div class="info-label">VENUE</div><div class="info-value" style="font-size:15px;line-height:1.4;">國北教大<br>田徑場</div><div class="info-sub">250M 跑道</div></div>
   <div class="info-cell c-green"><div class="info-label">FEE</div><div class="info-value">免費</div><div class="info-sub">全程零費用</div></div>
 </div>
-
-<section class="about-section">
-  <div class="section-inner">
-    <span class="section-tag">關於 NID FAMILY DAY</span>
-    <h2 class="section-title">OUR STORY</h2>
-    <p class="section-sub">NID FAMILY DAY 邁入第四年，這是一場屬於跑者、家人與孩子的年度盛會，用最單純的方式——一起跑步、一起流汗、一起把愛傳出去。今年我們持續號召大家把陪伴自己訓練與比賽的跑衣捐出來，讓這份熱情延續到偏鄉的孩子身上；同時保留個人賽、10人大隊接力與6人趣味接力三種玩法，不論你是想較量成績的競速咖，還是想帶全家出來運動流汗的日常咖，都能在田徑場上找到屬於自己的位置。</p>
-  </div>
-</section>
 
 <section class="events-section">
   <div class="section-inner">
@@ -352,10 +345,36 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
         <hr class="form-divider"/>
         <div class="form-group"><label>是否捐贈二手比賽跑衣？</label>
           <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-yes" value="是"/> 👕 是，我會帶來</label></div><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-no" value="否"/> 下次再說</label></div></div>
-          <p class="form-hint">自願捐贈，每人最多 2 件乾淨二手比賽跑衣，當天交給工作人員</p>
+          <p class="form-hint">自願捐贈乾淨二手比賽跑衣，當天交給工作人員</p>
         </div>
         <div class="form-group" id="shirt-count-group" style="display:none;"><label>預計捐贈幾件？</label>
           <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_count" value="1"/> 1 件</label></div><div class="radio-btn"><label><input type="radio" name="shirt_count" value="2"/> 2 件</label></div></div>
+        </div>
+        <div class="consent-section">
+          <div style="margin-bottom:16px;">
+            <button type="button" id="disclaimerToggle" onclick="toggleDisclaimer()" style="width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--cream);border:2px solid var(--ink);border-radius:10px;padding:12px 16px;cursor:pointer;color:var(--ink);font-size:13px;font-weight:700;">
+              <span>📋 活動免責聲明與參加規範（點擊展開閱讀）</span>
+              <span id="disclaimerArrow" style="transition:transform 0.3s;font-size:12px;">▼</span>
+            </button>
+            <div id="disclaimerBody" style="display:none;border:2px solid var(--ink);border-top:none;border-radius:0 0 10px 10px;padding:18px 20px;background:var(--white);font-size:12.5px;color:var(--muted);line-height:1.85;max-height:360px;overflow-y:auto;">
+              <p style="margin:0 0 10px;"><strong>1.</strong> 本人出於自由意志同意參與恩艾迪有限公司主辦的活動。本人已詳細閱覽本活動相關說明及規定，知悉本活動具有一定的風險，本人同意承擔本活動可能發生之所有風險。本活動可能發生的風險包括但不限於活動過程中可能會有推擠、碰撞、翻滾等行為，且該等行為可能會造成人身上傷害及財產上損失。</p>
+              <p style="margin:0 0 10px;"><strong>2.</strong> 為將本活動可能產生之風險降至最低，本人遵守本活動相關規定及配合工作人員的指示，做好自我管理，避免造成自己或他人人身上傷害或財產上損失，並承諾在本活動期間不會從事不正當行為。如有違反，恩艾迪有限公司及其人員有權禁止本人參與活動，並無庸負擔任何損害賠償責任。</p>
+              <p style="margin:0 0 10px;"><strong>3.</strong> 本人知悉本活動不包含保險，如須個人保險，請自行加保。</p>
+              <p style="margin:0 0 10px;"><strong>4.</strong> 本人同意並授權恩艾迪有限公司拍攝、使用、改做、修飾、公開展示本人之肖像（包含照片及視訊影像）、名字、聲音…等，於本活動中所拍攝之作品。本人同意恩艾迪有限公司就上述著作享有完整之著作權，其被授權人及繼受人得使用本人之肖像、名字、聲音…等於所有形式的著作載體及媒體，並得以各種管道或印刷方式呈現授權內容之全部或部分、公開發表，無須再通知或經由本人同意。（若不希望工作室使用，請提前告知）</p>
+              <p style="margin:0 0 10px;"><strong>5.</strong> 本人聲明並保證健康狀況良好，無心臟病、高血壓、糖尿病、氣喘及其他重大疾病；健康狀況適合參加本活動。若活動中發生任何意外事件，願自行負責。</p>
+              <p style="margin:0 0 10px;"><strong>6.</strong> 主辦單位保有修改、變更或暫停本活動之權利，如有未盡事宜，悉依主辦單位相關規定或解釋，並得隨時補充公告之。參加者一旦參加本活動，則表示同意接受本辦法之規範。</p>
+              <p style="margin:0 0 10px;"><strong>7.</strong> 活動相關及寄物說明：</p>
+              <p style="margin:0 0 4px;padding-left:16px;">（1）除台北市政府人事行政局發布停班停課外，若天氣預報活動當日為「雨天」，將會提前通知取消，並透過專屬社團及 Email 通知。</p>
+              <p style="margin:0 0 10px;padding-left:16px;">（2）此活動不提供寄物服務，對於隨身物品不負保管責任，若遺失概不負責，請盡量避免攜帶貴重物品。</p>
+              <p style="margin:0 0 10px;"><strong>8.</strong> 本活動不得將名額轉讓他人，若經查證屬實，將取消報名資格。</p>
+              <p style="margin:0 0 10px;"><strong>9.</strong> 完成報名之參加者，視為同意以上聲明。</p>
+              <p style="margin:0;"><strong>10.</strong> 以上活動事項如有未盡事宜，得隨時修訂之，本活動單位保有更動修改之權利。</p>
+            </div>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" id="consent" required/>
+            <span class="consent-text">本人已閱讀並同意上述活動免責聲明與參加規範。</span>
+          </label>
         </div>
         <button type="submit" class="btn-submit">SEND IT → 立刻報名</button>
       </form>
@@ -392,6 +411,17 @@ function loadStats(){
   }).catch(function(){/* 靜默失敗，維持顯示 – */});
 }
 loadStats();
+function toggleDisclaimer(){
+  var body=document.getElementById('disclaimerBody');
+  var arrow=document.getElementById('disclaimerArrow');
+  var open=body.style.display==='none';
+  body.style.display=open?'block':'none';
+  arrow.style.transform=open?'rotate(180deg)':'rotate(0deg)';
+  var btn=document.getElementById('disclaimerToggle');
+  btn.querySelector('span:first-child').textContent=open
+    ?'📋 活動免責聲明與參加規範（點擊收合）'
+    :'📋 活動免責聲明與參加規範（點擊展開閱讀）';
+}
 
 document.getElementById('cb-relay').addEventListener('change',function(){
   document.getElementById('team-details-relay').style.display=this.checked?'block':'none';

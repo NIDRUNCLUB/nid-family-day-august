@@ -163,6 +163,14 @@ section{padding:64px 24px;}
 #success-message .success-icon{font-size:54px;margin-bottom:16px;}
 #success-message h3{font-family:var(--font-display);font-size:36px;letter-spacing:.06em;margin-bottom:12px;}
 #success-message p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:24px;line-height:1.8;}
+#success-summary{text-align:left;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.25);border-radius:12px;padding:20px 22px;margin:0 0 24px;}
+#success-summary .summary-block{margin-bottom:16px;}
+#success-summary .summary-block:last-child{margin-bottom:0;}
+#success-summary .summary-block-title{font-family:var(--font-display);font-size:17px;letter-spacing:.04em;color:var(--white);margin-bottom:6px;}
+#success-summary .summary-block p{margin:0 0 4px;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.7;}
+#success-summary .summary-block p strong{color:var(--white);}
+#success-summary ul{margin:0;padding-left:20px;}
+#success-summary ul li{font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.8;}
 .line-btn{display:inline-block;background:#06C755;color:var(--white);font-family:var(--font-body);font-weight:700;font-size:15px;padding:14px 32px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);letter-spacing:.04em;}
 footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;padding:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;}
 @media(max-width:700px){
@@ -384,6 +392,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
       <div id="success-message">
         <div class="success-icon">♥</div>
         <h3>報名成功！</h3>
+        <div id="success-summary"></div>
         <p>確認信會在幾分鐘內寄到你的信箱。<br/>最後一步——加入活動 LINE 群組，<br/>當天集合資訊、注意事項都在裡面！</p>
         <a href="LINE_GROUP_LINK_HERE" class="line-btn">➕ 加入活動 LINE 群組</a>
       </div>
@@ -486,11 +495,45 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   fd.append('shirt_count',countEl?countEl.value:'');
 
   function showSuccess(){
-    form.style.display='none';
-    var s=document.getElementById('success-message');
-    s.style.display='block';
-    s.scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(loadStats,1500);
+  var EVENT_LABELS={
+    '個人賽60M男':'⚡ 個人賽 60M — 男生組',
+    '個人賽60M女':'⚡ 個人賽 60M — 女生組',
+    '個人賽250M男':'⚡ 個人賽 250M — 男生組',
+    '個人賽250M女':'⚡ 個人賽 250M — 女生組'
+  };
+  function esc(str){
+    var d=document.createElement('div');
+    d.textContent=str||'';
+    return d.innerHTML;
+  }
+  function buildSummaryHTML(){
+    var blocks=[];
+    var indiv=evts.filter(function(c){return EVENT_LABELS[c.value];});
+    if(indiv.length){
+      blocks.push('<div class="summary-block"><div class="summary-block-title">⚡ 個人賽項目</div><ul>'+
+        indiv.map(function(c){return '<li>'+esc(EVENT_LABELS[c.value])+'</li>';}).join('')+
+        '</ul></div>');
+    }
+    if(evts.some(function(c){return c.value==='10人大隊接力';})){
+      var relayTeamName=document.getElementById('relay-team-name').value.trim();
+      blocks.push('<div class="summary-block"><div class="summary-block-title">🏃 10人大隊接力</div>'+
+        '<p><strong>隊伍名稱：</strong>'+esc(relayTeamName)+'</p>'+
+        '<p><strong>隊員名單：</strong>'+esc(relayMembers)+'</p></div>');
+    }
+    if(evts.some(function(c){return c.value==='6人趣味接力';})){
+      var weightTeamName=document.getElementById('weight-team-name').value.trim();
+      blocks.push('<div class="summary-block"><div class="summary-block-title">🎒 6人趣味接力</div>'+
+        '<p><strong>隊伍名稱：</strong>'+esc(weightTeamName)+'</p>'+
+        '<p><strong>隊員名單：</strong>'+esc(weightMembers)+'</p></div>');
+    }
+    return blocks.join('');
+  }
+  form.style.display='none';
+  var s=document.getElementById('success-message');
+  document.getElementById('success-summary').innerHTML=buildSummaryHTML();
+  s.style.display='block';
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(loadStats,1500);
   }
 
   if(GOOGLE_SCRIPT_URL==='GOOGLE_SCRIPT_URL_HERE'){

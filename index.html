@@ -9,11 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --blue:#2563EB;--blue-dk:#1E40AF;--blue-lt:#DBEAFE;
-  --orange:#F97316;--orange-dk:#C2410C;--orange-lt:#FFF7ED;
-  --purple:#7C3AED;--purple-dk:#5B21B6;--purple-lt:#EDE9FE;
-  --red:#EF4444;--green:#16A34A;
-  --ink:#0F172A;--muted:#64748B;--cream:#F8FAFC;--white:#FFFFFF;
+  --logo-yellow:#FAE24C;
+  --gold:#F0B429;--gold-dk:#D4930F;--gold-lt:rgba(240,180,41,.14);
+  --blue:#4F8FFF;--blue-dk:#2563EB;--blue-lt:rgba(79,143,255,.14);
+  --orange:#FB923C;--orange-dk:#EA580C;--orange-lt:rgba(251,146,60,.09);
+  --purple:#A78BFA;--purple-dk:#7C3AED;--purple-lt:rgba(167,139,250,.14);
+  --pink:#F472B6;--pink-dk:#DB2777;
+  --red:#EF4444;--green:#34D399;
+  --ink:#FFFFFF;--muted:rgba(255,255,255,.62);--cream:#141414;--white:#FFFFFF;
   --radius:14px;
   --font-display:'Bebas Neue','Arial Black',sans-serif;
   --font-body:'Noto Sans TC',sans-serif;
@@ -21,10 +24,10 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--cream);color:var(--ink);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;}
+body{background:#000;color:var(--ink);font-family:var(--font-body);line-height:1.6;overflow-x:hidden;}
 
 .marquee-wrap{overflow:hidden;padding:11px 0;}
-.mq-orange{background:var(--orange);color:var(--white);border-bottom:3px solid var(--ink);}
+.mq-orange{background:var(--orange);color:#141414;border-bottom:3px solid var(--ink);}
 .mq-warm{background:var(--orange-lt);color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
 .mq-red{background:var(--red);color:var(--white);border-top:3px solid var(--ink);}
 .marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite;}
@@ -32,12 +35,12 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font-body);line-
 .marquee-track span{padding:0 28px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.1em;white-space:nowrap;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-.hero{background:linear-gradient(145deg,#0F172A 0%,#1E3A8A 40%,#1D4ED8 75%,#3B82F6 100%);color:var(--white);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(251,146,60,.18) 0%,transparent 55%),radial-gradient(ellipse at 20% 70%,rgba(167,139,250,.15) 0%,transparent 50%);pointer-events:none;}
+.hero{background:linear-gradient(160deg,#000000 0%,#0a0f28 45%,#000000 100%);color:var(--white);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(240,180,41,.20) 0%,transparent 55%),radial-gradient(ellipse at 20% 70%,rgba(167,139,250,.16) 0%,transparent 50%);pointer-events:none;}
 .hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;opacity:.65;margin-bottom:18px;text-transform:uppercase;}
 .hero-title{font-family:var(--font-display);font-size:clamp(68px,17vw,136px);line-height:.88;letter-spacing:.02em;margin-bottom:10px;}
-.nid-word{color:#FFE600;letter-spacing:.08em;}
-.heart-word{color:#FCD34D;}
+.nid-word{background:linear-gradient(180deg,#FDE68A 0%,#FAE24C 32%,#F0B429 68%,#C98A0F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;letter-spacing:.08em;}
+.heart-word{color:var(--gold);}
 .hero-subtitle{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;opacity:.75;margin-bottom:40px;}
 
 .hero-anim{width:230px;height:270px;position:relative;margin:0 auto 44px;overflow:hidden;}
@@ -50,19 +53,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--font-body);line-
 
 .hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:640px;margin:0 auto;}
 .hero-meta span{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 18px;font-size:13px;backdrop-filter:blur(10px);}
-.hero-meta strong{color:#FCD34D;}
+.hero-meta strong{color:var(--gold);}
 .hero-tagline{max-width:520px;margin:28px auto 0;font-size:14px;line-height:1.8;color:rgba(255,255,255,.78);}
 
-.info-grid{display:grid;grid-template-columns:repeat(4,1fr);}
-.info-cell{padding:30px 16px;text-align:center;border-right:2.5px solid var(--ink);}
-.info-cell:last-child{border-right:none;}
-.info-cell.c-blue{background:var(--blue);color:white;}
-.info-cell.c-orange{background:var(--orange);color:white;}
-.info-cell.c-purple{background:var(--purple);color:white;}
-.info-cell.c-green{background:#059669;color:white;}
-.info-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;opacity:.75;margin-bottom:8px;text-transform:uppercase;}
-.info-value{font-size:clamp(20px,3.5vw,28px);font-weight:900;line-height:1.15;}
-.info-sub{font-size:11px;opacity:.75;margin-top:4px;}
 
 section{padding:64px 24px;}
 .section-inner{max-width:900px;margin:0 auto;}
@@ -74,7 +67,7 @@ section{padding:64px 24px;}
 .events-section .section-tag{color:var(--orange-dk);}
 .events-section .section-sub{color:var(--muted);}
 .events-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px;}
-.event-card{background:var(--white);border:2.5px solid var(--ink);border-radius:var(--radius);padding:26px 24px;display:grid;grid-template-columns:68px 1fr;gap:18px;align-items:start;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.event-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:var(--radius);padding:26px 24px;display:grid;grid-template-columns:68px 1fr;gap:18px;align-items:start;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
 .event-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;}
 .event-card.ev-blue::before{background:var(--blue);}
 .event-card.ev-orange::before{background:var(--orange);}
@@ -82,7 +75,7 @@ section{padding:64px 24px;}
 .event-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.1);}
 .event-icon{width:68px;height:68px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:30px;border:2px solid var(--ink);}
 .ev-blue .event-icon{background:var(--blue-lt);}
-.ev-orange .event-icon{background:#FFEDD5;}
+.ev-orange .event-icon{background:var(--orange-lt);}
 .ev-purple .event-icon{background:var(--purple-lt);}
 .event-tag-sm{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
 .ev-blue .event-tag-sm{color:var(--blue);}
@@ -99,16 +92,16 @@ section{padding:64px 24px;}
 .stats-section .section-tag{color:var(--blue);}
 .stats-section .section-sub{color:var(--muted);}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;}
-.stat-card{background:var(--white);border:2.5px solid var(--ink);border-radius:var(--radius);padding:24px 18px;text-align:center;position:relative;overflow:hidden;}
+.stat-card{background:var(--cream);border:2.5px solid var(--ink);border-radius:var(--radius);padding:24px 18px;text-align:center;position:relative;overflow:hidden;}
 .stat-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;}
 .stat-card.sc-blue::before{background:var(--blue);}
-.stat-card.sc-pink::before{background:#EC4899;}
+.stat-card.sc-pink::before{background:var(--pink);}
 .stat-card.sc-orange::before{background:var(--orange);}
 .stat-card.sc-purple::before{background:var(--purple);}
 .stat-label{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:10px;}
 .stat-num{font-family:var(--font-display);font-size:56px;line-height:1;letter-spacing:.02em;}
 .stat-card.sc-blue .stat-num{color:var(--blue);}
-.stat-card.sc-pink .stat-num{color:#EC4899;}
+.stat-card.sc-pink .stat-num{color:var(--pink);}
 .stat-card.sc-orange .stat-num{color:var(--orange-dk);}
 .stat-card.sc-purple .stat-num{color:var(--purple);}
 .stat-unit{font-size:11px;color:var(--muted);margin-top:6px;font-family:var(--font-mono);letter-spacing:.06em;}
@@ -118,48 +111,48 @@ section{padding:64px 24px;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .stat-num{font-size:44px;}
 }
-.charity-section{background:linear-gradient(145deg,#1E1B4B 0%,#312E81 45%,#4C1D95 100%);color:var(--white);border-top:3px solid var(--ink);}
+.charity-section{background:linear-gradient(150deg,#0a0818 0%,#1E1B4B 45%,#2d1b4e 100%);color:var(--white);border-top:3px solid var(--ink);}
 .charity-section .section-tag{color:#C4B5FD;}
 .charity-section .section-title{color:var(--white);}
 .charity-section .section-sub{color:rgba(255,255,255,.72);}
 .love-steps{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;}
 .love-step{flex:1 1 200px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:24px 20px;backdrop-filter:blur(10px);}
 .step-num{font-family:var(--font-display);font-size:52px;line-height:1;margin-bottom:8px;}
-.step-num.c1{color:#FCD34D;}.step-num.c2{color:#86EFAC;}.step-num.c3{color:#F9A8D4;}
+.step-num.c1{color:var(--gold);}.step-num.c2{color:var(--green);}.step-num.c3{color:var(--pink);}
 .step-title{font-size:16px;font-weight:700;margin-bottom:6px;}
 .step-desc{font-size:13px;color:rgba(255,255,255,.68);line-height:1.65;}
-.singlet-note{margin-top:28px;background:rgba(252,211,77,.12);border-left:4px solid #FCD34D;padding:16px 20px;border-radius:0 var(--radius) var(--radius) 0;}
+.singlet-note{margin-top:28px;background:rgba(240,180,41,.10);border-left:4px solid var(--gold);padding:16px 20px;border-radius:0 var(--radius) var(--radius) 0;}
 .singlet-note p{font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.75;}
-.singlet-note strong{color:#FCD34D;}
+.singlet-note strong{color:var(--gold);}
 
-.form-section{background:var(--white);border-top:3px solid var(--ink);}
+.form-section{background:var(--cream);border-top:3px solid var(--ink);}
 .form-section .section-tag{color:var(--blue);}
 .form-section .section-sub{color:var(--muted);}
 .form-box{background:var(--cream);border:2.5px solid var(--ink);border-radius:16px;padding:40px 36px;max-width:640px;margin:36px auto 0;}
 .form-group{margin-bottom:22px;}
 .form-group label{display:block;font-size:13.5px;font-weight:700;margin-bottom:8px;color:var(--ink);}
-.form-group input,.form-group select{width:100%;border:2px solid #CBD5E1;border-radius:8px;padding:11px 14px;font-size:15px;font-family:var(--font-body);background:var(--white);color:var(--ink);transition:border-color .18s,box-shadow .18s;}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.14);}
+.form-group input,.form-group select{width:100%;border:2px solid rgba(255,255,255,.22);border-radius:8px;padding:11px 14px;font-size:15px;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s,box-shadow .18s;}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(79,143,255,.18);}
 .form-hint{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6;}
-.form-divider{border:none;border-top:2px dashed #CBD5E1;margin:26px 0;}
+.form-divider{border:none;border-top:2px dashed rgba(255,255,255,.22);margin:26px 0;}
 .checkbox-group{display:flex;flex-direction:column;gap:9px;}
-.check-item{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 14px;border:2px solid #CBD5E1;border-radius:9px;transition:border-color .18s,background .18s;}
+.check-item{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 14px;border:2px solid rgba(255,255,255,.22);border-radius:9px;transition:border-color .18s,background .18s;}
 .check-item:hover{border-color:var(--blue);background:var(--blue-lt);}
 .check-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--blue);flex-shrink:0;}
 .check-item span{font-size:14px;font-weight:500;}
 .radio-group{display:flex;flex-wrap:wrap;gap:9px;}
-.radio-btn label{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 16px;border:2px solid #CBD5E1;border-radius:8px;transition:border-color .18s,background .18s;font-size:14px;font-weight:500;}
+.radio-btn label{display:flex;align-items:center;gap:8px;cursor:pointer;padding:9px 16px;border:2px solid rgba(255,255,255,.22);border-radius:8px;transition:border-color .18s,background .18s;font-size:14px;font-weight:500;}
 .radio-btn label:hover{border-color:var(--blue);background:var(--blue-lt);}
 .radio-btn input{width:15px;height:15px;accent-color:var(--blue);}
-.team-details-box{background:#EFF6FF;border:2px solid #BFDBFE;border-radius:12px;padding:20px;margin-top:10px;}
+.team-details-box{background:rgba(79,143,255,.07);border:2px solid rgba(79,143,255,.3);border-radius:12px;padding:20px;margin-top:10px;}
 .team-details-box .form-group:last-child{margin-bottom:0;}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
-.team-grid input{padding:9px 12px;font-size:13px;border:2px solid #CBD5E1;border-radius:8px;width:100%;font-family:var(--font-body);background:var(--white);transition:border-color .18s;}
+.team-grid input{padding:9px 12px;font-size:13px;border:2px solid rgba(255,255,255,.22);border-radius:8px;width:100%;font-family:var(--font-body);background:var(--cream);transition:border-color .18s;}
 .team-grid input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(37,99,235,.12);}
-.btn-submit{width:100%;background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 100%);color:var(--white);font-family:var(--font-display);font-size:22px;letter-spacing:.07em;padding:18px;border:3px solid var(--ink);border-radius:10px;cursor:pointer;transition:filter .2s,transform .12s;margin-top:6px;}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--gold) 0%,var(--logo-yellow) 100%);color:#141414;font-family:var(--font-display);font-size:22px;letter-spacing:.07em;padding:18px;border:3px solid var(--ink);border-radius:10px;cursor:pointer;transition:filter .2s,transform .12s;margin-top:6px;}
 .btn-submit:hover{filter:brightness(1.1);transform:translateY(-2px);}
 .btn-submit:active{transform:translateY(0);}
-#success-message{display:none;text-align:center;background:linear-gradient(135deg,var(--blue-dk) 0%,var(--purple-dk) 100%);color:var(--white);border-radius:16px;padding:48px 32px;border:3px solid var(--ink);}
+#success-message{display:none;text-align:center;background:linear-gradient(135deg,#141024 0%,#241a3d 100%);color:var(--white);border-radius:16px;padding:48px 32px;border:3px solid var(--gold);}
 #success-message .success-icon{font-size:54px;margin-bottom:16px;}
 #success-message h3{font-family:var(--font-display);font-size:36px;letter-spacing:.06em;margin-bottom:12px;}
 #success-message p{color:rgba(255,255,255,.75);font-size:15px;margin-bottom:24px;line-height:1.8;}
@@ -172,10 +165,8 @@ section{padding:64px 24px;}
 #success-summary ul{margin:0;padding-left:20px;}
 #success-summary ul li{font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.8;}
 .line-btn{display:inline-block;background:#06C755;color:var(--white);font-family:var(--font-body);font-weight:700;font-size:15px;padding:14px 32px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);letter-spacing:.04em;}
-footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;padding:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;}
+footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:28px;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;}
 @media(max-width:700px){
-  .info-grid{grid-template-columns:1fr 1fr;}
-  .info-cell{border-bottom:2.5px solid var(--ink);}
   .event-card{grid-template-columns:1fr;}
   .event-icon{display:none;}
   .love-step{flex:1 1 100%;}
@@ -188,10 +179,19 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
 @media(max-width:700px){
   .site-logo{width:40px;height:40px;top:12px;left:12px;}
 }
-.consent-section{background:var(--white);border:2px solid var(--ink);border-radius:var(--radius);padding:18px;margin:20px 0 16px;}
+.consent-section{background:var(--cream);border:2px solid var(--ink);border-radius:var(--radius);padding:18px;margin:20px 0 16px;}
 .consent-label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;}
 .consent-label input[type="checkbox"]{margin-top:2px;width:18px;height:18px;accent-color:var(--blue);flex-shrink:0;cursor:pointer;}
 .consent-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.mission-section{background:var(--cream);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);}
+.mission-section .section-tag{color:var(--gold);}
+.mission-section .section-sub{color:var(--muted);max-width:640px;}
+.mission-section .section-sub strong{color:var(--gold);}
+.rules-toggle{margin-top:14px;}
+.rules-toggle summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--gold);padding:8px 0;list-style:revert;}
+.rules-toggle summary::marker{color:var(--gold);}
+.rules-toggle p{margin:6px 0 0;padding-left:2px;color:var(--muted);font-size:13px;line-height:1.65;}
+.rules-toggle p strong{color:var(--ink);}
 </style>
 </head>
 <body>
@@ -236,9 +236,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
     <span><strong>日期</strong> 2026.08.23（日）</span>
     <span><strong>時間</strong> 16:00 – 18:00</span>
     <span><strong>地點</strong> 國立台北教育大學田徑場</span>
-    <span><strong>人數</strong> 約 400 人</span>
-    <span><strong>費用</strong> 免費 🎉</span>
-  </div>
+    </div>
   <p class="hero-tagline">一起奔跑、一起流汗、一起把愛傳出去——邀請你和家人朋友，共度屬於 NID 的年度盛會</p>
 </section>
 
@@ -249,12 +247,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
   </div>
 </div>
 
-<div class="info-grid" style="border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);">
-  <div class="info-cell c-blue" style="border-right:2.5px solid var(--ink);"><div class="info-label">DATE</div><div class="info-value">08.23</div><div class="info-sub">2026 · 星期日</div></div>
-  <div class="info-cell c-orange" style="border-right:2.5px solid var(--ink);"><div class="info-label">TIME</div><div class="info-value">16–18</div><div class="info-sub">下午四點開始</div></div>
-  <div class="info-cell c-purple" style="border-right:2.5px solid var(--ink);"><div class="info-label">VENUE</div><div class="info-value" style="font-size:15px;line-height:1.4;">國北教大<br>田徑場</div><div class="info-sub">250M 跑道</div></div>
-  <div class="info-cell c-green"><div class="info-label">FEE</div><div class="info-value">免費</div><div class="info-sub">全程零費用</div></div>
-</div>
+<section class="mission-section">
+  <div class="section-inner">
+    <span class="section-tag">關於 RUN FOR LOVE</span>
+    <h2 class="section-title">WHY WE RUN</h2>
+    <p class="section-sub">NID RUN CLUB 從創辦以來，一直相信跑步教會我們的不只是配速和肌力，還有堅持、互助與分享。Run For Love 就是我們把這份信念化為行動的方式——邀請跑友們捐出乾淨的二手比賽跑衣，讓愛心跟著里程數一起累積，送到資源不足的偏鄉，陪伴更多孩子勇敢邁開步伐。這件事，我們已經<strong>持續做了 3 年</strong>，而今年，邀請你一起加入。</p>
+  </div>
+</section>
 
 <section class="events-section">
   <div class="section-inner">
@@ -264,21 +263,24 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
     <div class="events-grid">
       <div class="event-card ev-purple"><div class="event-icon">⚡</div><div><div class="event-tag-sm">INDIVIDUAL RACE</div><div class="event-name">個人賽</div><div class="event-desc">兩個距離，各有挑戰——60M 純粹爆發力、250M 策略與耐力考驗。所有項目可以同時報名，男女分組計時，看看你在 NID 裡排第幾。</div><span class="event-badge">60M</span><span class="event-badge">250M</span><span class="event-badge">男女分組</span></div></div>
       <div class="event-card ev-blue"><div class="event-icon">🏃</div><div><div class="event-tag-sm">TEAM RELAY</div><div class="event-name">10人大隊接力</div><div class="event-desc">每隊人數 10 人（須包含至少 4 位女生），需自行組隊完成，合力完成 2,500M 的熱血距離，採計時決賽制取最快前三名。組好你的夢幻隊伍，在田徑場上寫下屬於你們的故事。
-<br/><br/><strong>比賽規則：</strong>
-<br/>・搶跑道規則：自第 2 棒開始，選手完成交接後即可自由搶內側跑道
-<br/>・起跑後不得惡意阻擋或推擠其他選手，違者將視情節取消成績
-<br/>・接力方式：需在接力區內完成交棒，不得提前交棒或延後交棒
-<br/>・未進接力區即出發者視為偷跑，該棒加罰 3 秒</div><span class="event-badge">10 × 250M</span><span class="event-badge">須含4位女生</span><span class="event-badge">計時決賽制</span></div></div>
+<details class="rules-toggle"><summary>📋 查看比賽規則</summary>
+<p>・搶跑道規則：自第 2 棒開始，選手完成交接後即可自由搶內側跑道</p>
+<p>・起跑後不得惡意阻擋或推擠其他選手，違者將視情節取消成績</p>
+<p>・接力方式：需在接力區內完成交棒，不得提前交棒或延後交棒</p>
+<p>・未進接力區即出發者視為偷跑，該棒加罰 3 秒</p>
+</details></div><span class="event-badge">10 × 250M</span><span class="event-badge">須含4位女生</span><span class="event-badge">計時決賽制</span></div></div>
       <div class="event-card ev-orange"><div class="event-icon">🎒</div><div><div class="event-tag-sm">FUN RELAY</div><div class="event-name">6人趣味接力</div><div class="event-desc">每隊人數 6 人（須包含至少 3 位女生），需自行組隊完成，每人接力跑完 250M 後交棒，採計時決賽制取最快前三名。考驗的不只是速度，還有你們的默契與團隊合作。
-<br/><br/><strong>趣味關卡：</strong>
-<br/>・第 1、2 棒：🪢 跳繩跑步（邊跳繩邊跑完 250M）
-<br/>・第 3、4 棒：🥄 湯匙托乒乓球跑步（湯匙托球跑完 250M，掉球須原地撿回再繼續）
-<br/>・第 5、6 棒：🛍️ 提大垃圾袋跑步（雙手提著大垃圾袋跑完 250M）
-<br/><br/><strong>比賽規則：</strong>
-<br/>・搶跑道規則：自第 2 棒開始，選手完成交接後即可自由搶內側跑道
-<br/>・起跑後不得惡意阻擋或推擠其他選手，違者將視情節取消成績
-<br/>・接力方式：需在接力區內完成交棒，不得提前交棒或延後交棒
-<br/>・未進接力區即出發者視為偷跑，該棒加罰 3 秒</div><span class="event-badge">6 人接力</span><span class="event-badge">須含3位女生</span><span class="event-badge">計時決賽制</span></div></div>
+<details class="rules-toggle"><summary>📋 查看關卡與比賽規則</summary>
+<p><strong>趣味關卡：</strong></p>
+<p>・第 1、2 棒：🪢 跳繩跑步（邊跳繩邊跑完 250M）</p>
+<p>・第 3、4 棒：🥄 湯匙托乒乓球跑步（湯匙托球跑完 250M，掉球須原地撿回再繼續）</p>
+<p>・第 5、6 棒：🛍️ 提大垃圾袋跑步（雙手提著大垃圾袋跑完 250M）</p>
+<p><strong>比賽規則：</strong></p>
+<p>・搶跑道規則：自第 2 棒開始，選手完成交接後即可自由搶內側跑道</p>
+<p>・起跑後不得惡意阻擋或推擠其他選手，違者將視情節取消成績</p>
+<p>・接力方式：需在接力區內完成交棒，不得提前交棒或延後交棒</p>
+<p>・未進接力區即出發者視為偷跑，該棒加罰 3 秒</p>
+</details></div><span class="event-badge">6 人接力</span><span class="event-badge">須含3位女生</span><span class="event-badge">計時決賽制</span></div></div>
     </div>
   </div>
 </section>
@@ -322,7 +324,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
     <div class="form-box">
       <form id="reg-form">
         <div class="form-group"><label for="name">姓名 *</label><input type="text" id="name" name="name" placeholder="請輸入真實姓名" required/></div>
-        <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option><option>其他戰隊</option></select></div>
+        <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
         <div class="form-group"><label for="email">電子信箱 *</label><input type="email" id="email" name="email" placeholder="報名確認信會寄送至此" required/></div>
         <div class="form-group"><label for="shirt-size">衣服尺寸 *</label><select id="shirt-size" name="shirt_size" required><option value="">請選擇尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select><p class="form-hint">活動紀念服／運動背心尺寸，請依平常穿著習慣選擇</p></div>
         <hr class="form-divider"/>
@@ -367,7 +369,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.32);text-align:center;paddi
               <span>📋 活動免責聲明與參加規範（點擊展開閱讀）</span>
               <span id="disclaimerArrow" style="transition:transform 0.3s;font-size:12px;">▼</span>
             </button>
-            <div id="disclaimerBody" style="display:none;border:2px solid var(--ink);border-top:none;border-radius:0 0 10px 10px;padding:18px 20px;background:var(--white);font-size:12.5px;color:var(--muted);line-height:1.85;max-height:360px;overflow-y:auto;">
+            <div id="disclaimerBody" style="display:none;border:2px solid var(--ink);border-top:none;border-radius:0 0 10px 10px;padding:18px 20px;background:var(--cream);font-size:12.5px;color:var(--muted);line-height:1.85;max-height:360px;overflow-y:auto;">
               <p style="margin:0 0 10px;"><strong>1.</strong> 本人出於自由意志同意參與恩艾迪有限公司主辦的活動。本人已詳細閱覽本活動相關說明及規定，知悉本活動具有一定的風險，本人同意承擔本活動可能發生之所有風險。本活動可能發生的風險包括但不限於活動過程中可能會有推擠、碰撞、翻滾等行為，且該等行為可能會造成人身上傷害及財產上損失。</p>
               <p style="margin:0 0 10px;"><strong>2.</strong> 為將本活動可能產生之風險降至最低，本人遵守本活動相關規定及配合工作人員的指示，做好自我管理，避免造成自己或他人人身上傷害或財產上損失，並承諾在本活動期間不會從事不正當行為。如有違反，恩艾迪有限公司及其人員有權禁止本人參與活動，並無庸負擔任何損害賠償責任。</p>
               <p style="margin:0 0 10px;"><strong>3.</strong> 本人知悉本活動不包含保險，如須個人保險，請自行加保。</p>

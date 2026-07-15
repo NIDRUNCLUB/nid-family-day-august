@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
-  --logo-yellow:#FAE24C;
+    --logo-yellow:#FFE100;
   --gold:#F0B429;--gold-dk:#D4930F;--gold-lt:rgba(240,180,41,.14);
   --blue:#4F8FFF;--blue-dk:#2563EB;--blue-lt:rgba(79,143,255,.14);
   --orange:#FB923C;--orange-dk:#EA580C;--orange-lt:rgba(251,146,60,.09);
@@ -35,12 +35,12 @@ body{background:#000;color:var(--ink);font-family:var(--font-body);line-height:1
 .marquee-track span{padding:0 28px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.1em;white-space:nowrap;}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-.hero{background:linear-gradient(160deg,#000000 0%,#0a0f28 45%,#000000 100%);color:var(--white);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(240,180,41,.20) 0%,transparent 55%),radial-gradient(ellipse at 20% 70%,rgba(167,139,250,.16) 0%,transparent 50%);pointer-events:none;}
+.hero{background:#000000;color:var(--white);padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 75% 25%,rgba(255,225,0,.14) 0%,transparent 55%),radial-gradient(ellipse at 20% 70%,rgba(255,225,0,.07) 0%,transparent 50%);pointer-events:none;}
 .hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;opacity:.65;margin-bottom:18px;text-transform:uppercase;}
 .hero-title{font-family:var(--font-display);font-size:clamp(68px,17vw,136px);line-height:.88;letter-spacing:.02em;margin-bottom:10px;}
-.nid-word{background:linear-gradient(180deg,#FDE68A 0%,#FAE24C 32%,#F0B429 68%,#C98A0F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;letter-spacing:.08em;}
-.heart-word{color:var(--gold);}
+.nid-word{color:var(--logo-yellow);letter-spacing:.08em;}
+.heart-word{color:var(--logo-yellow);}
 .hero-subtitle{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;opacity:.75;margin-bottom:40px;}
 
 .hero-anim{width:230px;height:270px;position:relative;margin:0 auto 44px;overflow:hidden;}
@@ -53,7 +53,7 @@ body{background:#000;color:var(--ink);font-family:var(--font-body);line-height:1
 
 .hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:640px;margin:0 auto;}
 .hero-meta span{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 18px;font-size:13px;backdrop-filter:blur(10px);}
-.hero-meta strong{color:var(--gold);}
+.hero-meta strong{color:var(--logo-yellow);}
 .hero-tagline{max-width:520px;margin:28px auto 0;font-size:14px;line-height:1.8;color:rgba(255,255,255,.78);}
 
 
@@ -111,7 +111,7 @@ section{padding:64px 24px;}
   .stats-grid{grid-template-columns:1fr 1fr;}
   .stat-num{font-size:44px;}
 }
-.charity-section{background:linear-gradient(150deg,#0a0818 0%,#1E1B4B 45%,#2d1b4e 100%);color:var(--white);border-top:3px solid var(--ink);}
+.charity-section{background:#000000;color:var(--white);border-top:3px solid var(--ink);}
 .charity-section .section-tag{color:#C4B5FD;}
 .charity-section .section-title{color:var(--white);}
 .charity-section .section-sub{color:rgba(255,255,255,.72);}
@@ -215,12 +215,12 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
     <div class="anim-singlet-clip">
     <div class="anim-singlet">
       <svg width="76" height="92" viewBox="0 0 76 92" fill="none">
-        <path d="M 18 0 L 26 0 C 30 28 46 28 50 0 L 58 0 Q 70 22 62 42 L 64 90 L 12 90 L 14 42 Q 6 22 18 0 Z" fill="#60A5FA" stroke="#1E3A8A" stroke-width="2.5" stroke-linejoin="round"/>
-        <path d="M 18 2 Q 8 20 15 40 L 18 38 Q 9 20 22 3 Z" fill="#1E40AF" opacity=".2"/>
-        <path d="M 58 2 Q 68 20 61 40 L 58 38 Q 67 20 54 3 Z" fill="#1E40AF" opacity=".2"/>
-        <path d="M 27 1 C 31 24 45 24 49 1 L 46 1 C 43 21 33 21 30 1 Z" fill="#3B82F6" opacity=".3"/>
-        <rect x="26" y="48" width="24" height="17" rx="4" fill="#93C5FD" opacity=".45"/>
-        <text x="38" y="61" text-anchor="middle" font-size="13" fill="#1E40AF">♥</text>
+        <path d="M 18 0 L 26 0 C 30 28 46 28 50 0 L 58 0 Q 70 22 62 42 L 64 90 L 12 90 L 14 42 Q 6 22 18 0 Z" fill="#1a1a1a" stroke="#FFE100" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M 18 2 Q 8 20 15 40 L 18 38 Q 9 20 22 3 Z" fill="#FFE100" opacity=".18"/>
+<path d="M 58 2 Q 68 20 61 40 L 58 38 Q 67 20 54 3 Z" fill="#FFE100" opacity=".18"/>
+<path d="M 27 1 C 31 24 45 24 49 1 L 46 1 C 43 21 33 21 30 1 Z" fill="#FFE100" opacity=".25"/>
+<rect x="26" y="48" width="24" height="17" rx="4" fill="#FFE100" opacity=".85"/>
+<text x="38" y="61" text-anchor="middle" font-size="13" fill="#1a1a1a">♥</text>
       </svg>
     </div>
     </div>
@@ -324,7 +324,8 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
     <div class="form-box">
       <form id="reg-form">
         <div class="form-group"><label for="name">姓名 *</label><input type="text" id="name" name="name" placeholder="請輸入真實姓名" required/></div>
-        <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+        <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+<div class="form-group" id="nidSubTeamGroup" style="display:none;"><label for="nid-sub-team">請選擇你的分隊</label><select id="nid-sub-team" name="nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
         <div class="form-group"><label for="email">電子信箱 *</label><input type="email" id="email" name="email" placeholder="報名確認信會寄送至此" required/></div>
         <div class="form-group"><label for="shirt-size">衣服尺寸 *</label><select id="shirt-size" name="shirt_size" required><option value="">請選擇尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select><p class="form-hint">活動紀念服／運動背心尺寸，請依平常穿著習慣選擇</p></div>
         <hr class="form-divider"/>
@@ -447,6 +448,11 @@ document.getElementById('cb-weight').addEventListener('change',function(){
 });
 document.getElementById('shirt-yes').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='block';});
 document.getElementById('shirt-no').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='none';document.querySelectorAll('input[name="shirt_count"]').forEach(function(x){x.checked=false;});});
+document.getElementById('nid-class').addEventListener('change',function(){
+  var showSub = this.value === 'NID RUN CLUB戰隊';
+  document.getElementById('nidSubTeamGroup').style.display = showSub ? 'block' : 'none';
+  if(!showSub){document.getElementById('nid-sub-team').value='';}
+});
 document.getElementById('reg-form').addEventListener('submit',function(e){
   e.preventDefault();
   if(!document.getElementById('name').value.trim()){alert('請填寫姓名');return;}
@@ -477,7 +483,12 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
 
   var fd=new FormData();
   fd.append('name',document.getElementById('name').value.trim());
-  fd.append('nid_class',document.getElementById('nid-class').value);
+  var nidClassVal=document.getElementById('nid-class').value;
+  if(nidClassVal==='NID RUN CLUB戰隊'){
+    var subVal=document.getElementById('nid-sub-team').value;
+    nidClassVal=subVal?subVal:'NID RUN CLUB戰隊';
+  }
+  fd.append('nid_class',nidClassVal);
   fd.append('email',document.getElementById('email').value.trim());
   fd.append('shirt_size',document.getElementById('shirt-size').value);
   fd.append('events',evts.map(function(c){return c.value;}).join('、'));

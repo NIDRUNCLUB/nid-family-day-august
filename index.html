@@ -149,6 +149,14 @@ section{padding:64px 24px;}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .team-grid input{padding:9px 12px;font-size:13px;border:2px solid rgba(255,255,255,.22);border-radius:8px;width:100%;font-family:var(--font-body);background:var(--cream);transition:border-color .18s;}
 .team-grid input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(37,99,235,.12);}
+.member-rows{display:flex;flex-direction:column;gap:8px;margin-top:8px;}
+.member-row{display:grid;grid-template-columns:2fr 1fr;gap:8px;}
+.member-row input,.member-row select{padding:9px 12px;font-size:13px;border:2px solid rgba(255,255,255,.22);border-radius:8px;width:100%;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s;}
+.member-row input:focus,.member-row select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 2px rgba(37,99,235,.12);}
+.category-hint{font-size:12px;color:var(--gold);margin-top:8px;line-height:1.6;}
+@media(max-width:700px){
+  .member-row{grid-template-columns:1fr;}
+}
 .btn-submit{width:100%;background:linear-gradient(135deg,var(--gold) 0%,var(--logo-yellow) 100%);color:#141414;font-family:var(--font-display);font-size:22px;letter-spacing:.07em;padding:18px;border:3px solid var(--ink);border-radius:10px;cursor:pointer;transition:filter .2s,transform .12s;margin-top:6px;}
 .btn-submit:hover{filter:brightness(1.1);transform:translateY(-2px);}
 .btn-submit:active{transform:translateY(0);}
@@ -323,39 +331,91 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
     <p class="section-sub">不論你想單挑個人賽紀錄、揪團參加10人大隊接力，還是帶著家人朋友來6人趣味接力同樂，都歡迎填寫以下資訊完成報名。報名成功後記得加入活動 LINE 群組，當天集合時間、報到動線與注意事項通通都在裡面，別錯過任何重要資訊！</p>
     <div class="form-box">
       <form id="reg-form">
-        <div class="form-group"><label for="name">姓名 *</label><input type="text" id="name" name="name" placeholder="請輸入真實姓名" required/></div>
-        <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
-<div class="form-group" id="nidSubTeamGroup" style="display:none;"><label for="nid-sub-team">請選擇你的分隊</label><select id="nid-sub-team" name="nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
-        <div class="form-group"><label for="email">電子信箱 *</label><input type="email" id="email" name="email" placeholder="報名確認信會寄送至此" required/></div>
-        <div class="form-group"><label for="shirt-size">衣服尺寸 *</label><select id="shirt-size" name="shirt_size" required><option value="">請選擇尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select><p class="form-hint">活動紀念服／運動背心尺寸，請依平常穿著習慣選擇</p></div>
-        <hr class="form-divider"/>
         <div class="form-group">
-          <label>報名項目 *（可複選）</label>
-          <div class="checkbox-group">
-            <label class="check-item"><input type="checkbox" name="events" value="個人賽60M男"/><span>⚡ 個人賽 60M — 男生組</span></label>
-            <label class="check-item"><input type="checkbox" name="events" value="個人賽60M女"/><span>⚡ 個人賽 60M — 女生組</span></label>
-            <label class="check-item"><input type="checkbox" name="events" value="個人賽250M男"/><span>⚡ 個人賽 250M — 男生組</span></label>
-            <label class="check-item"><input type="checkbox" name="events" value="個人賽250M女"/><span>⚡ 個人賽 250M — 女生組</span></label>
+          <label>報名項目類別 *</label>
+          <div class="radio-group">
+            <div class="radio-btn"><label><input type="radio" name="reg_category" value="個人項目" id="cat-individual" required/> ⚡ 個人項目（個人賽）</label></div>
+            <div class="radio-btn"><label><input type="radio" name="reg_category" value="團體項目" id="cat-team"/> 🏃 團體項目（大隊接力／趣味接力）</label></div>
+          </div>
+          <p class="category-hint">因活動訂製跑衣需精準備料，每人僅能擇一類別報名，請勿重複登記</p>
+        </div>
 
-            <label class="check-item"><input type="checkbox" name="events" value="10人大隊接力" id="cb-relay"/><span>🏃 10人大隊接力（10×250M）</span></label>
-            <div id="team-details-relay" style="display:none;">
-              <div class="team-details-box">
-                <div class="form-group"><label for="relay-team-name">隊伍名稱 *</label><input type="text" id="relay-team-name" name="relay_team_name" placeholder="幫你的隊伍取個霸氣的名字！"/></div>
-                <div class="form-group" style="margin-bottom:0;"><label>10 位隊員姓名 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 10 人</p>
-                <div class="team-grid"><input type="text" name="rm1" placeholder="第 1 棒"/><input type="text" name="rm2" placeholder="第 2 棒"/><input type="text" name="rm3" placeholder="第 3 棒"/><input type="text" name="rm4" placeholder="第 4 棒"/><input type="text" name="rm5" placeholder="第 5 棒"/><input type="text" name="rm6" placeholder="第 6 棒"/><input type="text" name="rm7" placeholder="第 7 棒"/><input type="text" name="rm8" placeholder="第 8 棒"/><input type="text" name="rm9" placeholder="第 9 棒"/><input type="text" name="rm10" placeholder="第 10 棒"/></div></div>
-              </div>
+        <div id="individual-section" style="display:none;">
+          <div class="form-group"><label for="name">姓名 *</label><input type="text" id="name" name="name" placeholder="請輸入真實姓名"/></div>
+          <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+          <div class="form-group" id="nidSubTeamGroup" style="display:none;"><label for="nid-sub-team">請選擇你的分隊</label><select id="nid-sub-team" name="nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
+          <div class="form-group"><label for="email">電子信箱 *</label><input type="email" id="email" name="email" placeholder="報名確認信會寄送至此"/></div>
+          <div class="form-group"><label for="shirt-size">衣服尺寸 *</label><select id="shirt-size" name="shirt_size"><option value="">請選擇尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select><p class="form-hint">活動紀念服／運動背心尺寸，請依平常穿著習慣選擇</p></div>
+          <div class="form-group">
+            <label class="check-item"><input type="checkbox" id="join-60m"/><span>⚡ 個人賽 60M</span></label>
+            <div id="gender-60m-group" class="radio-group" style="display:none;margin-top:8px;">
+              <div class="radio-btn"><label><input type="radio" name="event_60m" value="男"/> 男生組</label></div>
+              <div class="radio-btn"><label><input type="radio" name="event_60m" value="女"/> 女生組</label></div>
             </div>
+          </div>
+          <div class="form-group">
+            <label class="check-item"><input type="checkbox" id="join-250m"/><span>⚡ 個人賽 250M</span></label>
+            <div id="gender-250m-group" class="radio-group" style="display:none;margin-top:8px;">
+              <div class="radio-btn"><label><input type="radio" name="event_250m" value="男"/> 男生組</label></div>
+              <div class="radio-btn"><label><input type="radio" name="event_250m" value="女"/> 女生組</label></div>
+            </div>
+            <p class="form-hint">60M／250M 可依需求各自選擇是否參加，兩者皆可同時報名</p>
+          </div>
+        </div>
 
-            <label class="check-item"><input type="checkbox" name="events" value="6人趣味接力" id="cb-weight"/><span>🎒 6人趣味接力（一人 250M）</span></label>
-            <div id="team-details-weight" style="display:none;">
-              <div class="team-details-box">
-                <div class="form-group"><label for="weight-team-name">隊伍名稱 *</label><input type="text" id="weight-team-name" name="weight_team_name" placeholder="幫你的隊伍取個名字！"/></div>
-                <div class="form-group" style="margin-bottom:0;"><label>6 位隊員姓名 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 6 人</p>
-                <div class="team-grid"><input type="text" name="wm1" placeholder="第 1 棒"/><input type="text" name="wm2" placeholder="第 2 棒"/><input type="text" name="wm3" placeholder="第 3 棒"/><input type="text" name="wm4" placeholder="第 4 棒"/><input type="text" name="wm5" placeholder="第 5 棒"/><input type="text" name="wm6" placeholder="第 6 棒"/></div></div>
-              </div>
+        <div id="team-section" style="display:none;">
+          <div class="form-group">
+            <label>接力類型 *（擇一）</label>
+            <div class="radio-group">
+              <div class="radio-btn"><label><input type="radio" name="relay_type" value="10人大隊接力" id="relay-type-10"/> 🏃 10人大隊接力（10×250M）</label></div>
+              <div class="radio-btn"><label><input type="radio" name="relay_type" value="6人趣味接力" id="relay-type-6"/> 🎒 6人趣味接力（一人 250M）</label></div>
+            </div>
+            <p class="category-hint">同一隊伍僅能擇一種接力賽制報名</p>
+          </div>
+
+          <div id="team-details-relay" style="display:none;">
+            <div class="team-details-box">
+              <div class="form-group"><label for="relay-team-name">隊伍名稱 *</label><input type="text" id="relay-team-name" name="relay_team_name" placeholder="幫你的隊伍取個霸氣的名字！"/></div>
+              <div class="form-group"><label for="relay-nid-class">隸屬戰隊</label><select id="relay-nid-class" name="relay_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+              <div class="form-group" id="relayNidSubTeamGroup" style="display:none;"><label for="relay-nid-sub-team">請選擇分隊</label><select id="relay-nid-sub-team" name="relay_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
+              <div class="form-group"><label for="relay-captain-name">隊長姓名 *</label><input type="text" id="relay-captain-name" name="relay_captain_name" placeholder="請輸入隊長真實姓名"/></div>
+              <div class="form-group"><label for="relay-captain-email">隊長信箱 *</label><input type="email" id="relay-captain-email" name="relay_captain_email" placeholder="隊長的電子信箱"/></div>
+              <div class="form-group" style="margin-bottom:0;"><label>10 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 10 人，每人皆需選擇衣服尺寸</p>
+              <div class="member-rows">
+                <div class="member-row"><input type="text" name="rm1" placeholder="第 1 棒 姓名"/><select name="rm1_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm2" placeholder="第 2 棒 姓名"/><select name="rm2_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm3" placeholder="第 3 棒 姓名"/><select name="rm3_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm4" placeholder="第 4 棒 姓名"/><select name="rm4_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm5" placeholder="第 5 棒 姓名"/><select name="rm5_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm6" placeholder="第 6 棒 姓名"/><select name="rm6_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm7" placeholder="第 7 棒 姓名"/><select name="rm7_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm8" placeholder="第 8 棒 姓名"/><select name="rm8_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm9" placeholder="第 9 棒 姓名"/><select name="rm9_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="rm10" placeholder="第 10 棒 姓名"/><select name="rm10_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+              </div></div>
+            </div>
+          </div>
+
+          <div id="team-details-weight" style="display:none;">
+            <div class="team-details-box">
+              <div class="form-group"><label for="weight-team-name">隊伍名稱 *</label><input type="text" id="weight-team-name" name="weight_team_name" placeholder="幫你的隊伍取個名字！"/></div>
+              <div class="form-group"><label for="weight-nid-class">隸屬戰隊</label><select id="weight-nid-class" name="weight_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+              <div class="form-group" id="weightNidSubTeamGroup" style="display:none;"><label for="weight-nid-sub-team">請選擇分隊</label><select id="weight-nid-sub-team" name="weight_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
+              <div class="form-group"><label for="weight-captain-name">隊長姓名 *</label><input type="text" id="weight-captain-name" name="weight_captain_name" placeholder="請輸入隊長真實姓名"/></div>
+              <div class="form-group"><label for="weight-captain-email">隊長信箱 *</label><input type="email" id="weight-captain-email" name="weight_captain_email" placeholder="隊長的電子信箱"/></div>
+              <div class="form-group" style="margin-bottom:0;"><label>6 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 6 人，每人皆需選擇衣服尺寸</p>
+              <div class="member-rows">
+                <div class="member-row"><input type="text" name="wm1" placeholder="第 1 棒 姓名"/><select name="wm1_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="wm2" placeholder="第 2 棒 姓名"/><select name="wm2_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="wm3" placeholder="第 3 棒 姓名"/><select name="wm3_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="wm4" placeholder="第 4 棒 姓名"/><select name="wm4_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="wm5" placeholder="第 5 棒 姓名"/><select name="wm5_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+                <div class="member-row"><input type="text" name="wm6" placeholder="第 6 棒 姓名"/><select name="wm6_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+              </div></div>
             </div>
           </div>
         </div>
+
         <hr class="form-divider"/>
         <div class="form-group"><label>是否捐贈二手比賽跑衣？</label>
           <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-yes" value="是"/> 👕 是，我會帶來</label></div><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-no" value="否"/> 下次再說</label></div></div>
@@ -438,14 +498,6 @@ function toggleDisclaimer(){
     :'📋 活動免責聲明與參加規範（點擊展開閱讀）';
 }
 
-document.getElementById('cb-relay').addEventListener('change',function(){
-  document.getElementById('team-details-relay').style.display=this.checked?'block':'none';
-  if(!this.checked){document.getElementById('relay-team-name').value='';document.querySelectorAll('#team-details-relay .team-grid input').forEach(function(i){i.value='';});}
-});
-document.getElementById('cb-weight').addEventListener('change',function(){
-  document.getElementById('team-details-weight').style.display=this.checked?'block':'none';
-  if(!this.checked){document.getElementById('weight-team-name').value='';document.querySelectorAll('#team-details-weight .team-grid input').forEach(function(i){i.value='';});}
-});
 document.getElementById('shirt-yes').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='block';});
 document.getElementById('shirt-no').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='none';document.querySelectorAll('input[name="shirt_count"]').forEach(function(x){x.checked=false;});});
 document.getElementById('nid-class').addEventListener('change',function(){
@@ -453,22 +505,118 @@ document.getElementById('nid-class').addEventListener('change',function(){
   document.getElementById('nidSubTeamGroup').style.display = showSub ? 'block' : 'none';
   if(!showSub){document.getElementById('nid-sub-team').value='';}
 });
+function bindSubTeamToggle(selectId, groupId, subSelectId){
+  document.getElementById(selectId).addEventListener('change',function(){
+    var showSub = this.value === 'NID RUN CLUB戰隊';
+    document.getElementById(groupId).style.display = showSub ? 'block' : 'none';
+    if(!showSub){document.getElementById(subSelectId).value='';}
+  });
+}
+bindSubTeamToggle('relay-nid-class','relayNidSubTeamGroup','relay-nid-sub-team');
+bindSubTeamToggle('weight-nid-class','weightNidSubTeamGroup','weight-nid-sub-team');
+
+function clearIndividualSection(){
+  document.getElementById('name').value='';
+  document.getElementById('nid-class').value='';
+  document.getElementById('nid-sub-team').value='';
+  document.getElementById('nidSubTeamGroup').style.display='none';
+  document.getElementById('email').value='';
+  document.getElementById('shirt-size').value='';
+  var j60=document.getElementById('join-60m');if(j60)j60.checked=false;
+  var j250=document.getElementById('join-250m');if(j250)j250.checked=false;
+  document.getElementById('gender-60m-group').style.display='none';
+  document.getElementById('gender-250m-group').style.display='none';
+  document.querySelectorAll('input[name="event_60m"]').forEach(function(r){r.checked=false;});
+  document.querySelectorAll('input[name="event_250m"]').forEach(function(r){r.checked=false;});
+}
+function clearTeamSection(){
+  document.querySelectorAll('input[name="relay_type"]').forEach(function(r){r.checked=false;});
+  document.getElementById('team-details-relay').style.display='none';
+  document.getElementById('team-details-weight').style.display='none';
+  ['relay-team-name','relay-captain-name','relay-captain-email','weight-team-name','weight-captain-name','weight-captain-email'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('relay-nid-class').value='';
+  document.getElementById('weight-nid-class').value='';
+  document.getElementById('relayNidSubTeamGroup').style.display='none';
+  document.getElementById('weightNidSubTeamGroup').style.display='none';
+  document.querySelectorAll('#team-details-relay .member-row input, #team-details-relay .member-row select').forEach(function(i){i.value='';});
+  document.querySelectorAll('#team-details-weight .member-row input, #team-details-weight .member-row select').forEach(function(i){i.value='';});
+}
+document.querySelectorAll('input[name="reg_category"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var isIndividual = this.value === '個人項目';
+    document.getElementById('individual-section').style.display = isIndividual ? 'block' : 'none';
+    document.getElementById('team-section').style.display = isIndividual ? 'none' : 'block';
+    if(isIndividual){ clearTeamSection(); } else { clearIndividualSection(); }
+  });
+});
+document.querySelectorAll('input[name="relay_type"]').forEach(function(r){
+  r.addEventListener('change',function(){
+    var isRelay10 = this.value === '10人大隊接力';
+    document.getElementById('team-details-relay').style.display = isRelay10 ? 'block' : 'none';
+    document.getElementById('team-details-weight').style.display = isRelay10 ? 'none' : 'block';
+  });
+});
+document.getElementById('join-60m').addEventListener('change',function(){
+  document.getElementById('gender-60m-group').style.display=this.checked?'flex':'none';
+  if(!this.checked){document.querySelectorAll('input[name="event_60m"]').forEach(function(r){r.checked=false;});}
+});
+document.getElementById('join-250m').addEventListener('change',function(){
+  document.getElementById('gender-250m-group').style.display=this.checked?'flex':'none';
+  if(!this.checked){document.querySelectorAll('input[name="event_250m"]').forEach(function(r){r.checked=false;});}
+});
 document.getElementById('reg-form').addEventListener('submit',function(e){
   e.preventDefault();
-  if(!document.getElementById('name').value.trim()){alert('請填寫姓名');return;}
-  if(!document.getElementById('email').value.trim()){alert('請填寫電子信箱');return;}
-  if(!document.getElementById('shirt-size').value){alert('請選擇衣服尺寸');return;}
-  var evts=[...document.querySelectorAll('input[name="events"]:checked')];
-  if(!evts.length){alert('請至少選擇一個活動項目');return;}
-  if(evts.some(function(c){return c.value==='10人大隊接力';})){
-    if(!document.getElementById('relay-team-name').value.trim()){alert('請填寫大隊接力隊伍名稱');return;}
-    var rE=[...document.querySelectorAll('#team-details-relay .team-grid input')].filter(function(i){return!i.value.trim();});
-    if(rE.length){alert('大隊接力還有 '+rE.length+' 位隊員姓名未填');return;}
-  }
-  if(evts.some(function(c){return c.value==='6人趣味接力';})){
-    if(!document.getElementById('weight-team-name').value.trim()){alert('請填寫趣味接力隊伍名稱');return;}
-    var wE=[...document.querySelectorAll('#team-details-weight .team-grid input')].filter(function(i){return!i.value.trim();});
-    if(wE.length){alert('趣味接力還有 '+wE.length+' 位隊員姓名未填');return;}
+
+  var categoryEl=document.querySelector('input[name="reg_category"]:checked');
+  if(!categoryEl){alert('請選擇報名項目類別（個人項目／團體項目）');return;}
+  var category=categoryEl.value;
+
+  var e60='', e250='', relayType='';
+  var relayMembers='', weightMembers='';
+  var relayMemberSizes='', weightMemberSizes='';
+
+  if(category==='個人項目'){
+    if(!document.getElementById('name').value.trim()){alert('請填寫姓名');return;}
+    if(!document.getElementById('email').value.trim()){alert('請填寫電子信箱');return;}
+    if(!document.getElementById('shirt-size').value){alert('請選擇衣服尺寸');return;}
+    var join60=document.getElementById('join-60m').checked;
+    var join250=document.getElementById('join-250m').checked;
+    if(!join60 && !join250){alert('請至少選擇一個個人賽項目（60M 或 250M）');return;}
+    if(join60){
+      var e60El=document.querySelector('input[name="event_60m"]:checked');
+      if(!e60El){alert('請選擇 60M 的男女組別');return;}
+      e60=e60El.value;
+    }
+    if(join250){
+      var e250El=document.querySelector('input[name="event_250m"]:checked');
+      if(!e250El){alert('請選擇 250M 的男女組別');return;}
+      e250=e250El.value;
+    }
+  } else {
+    var relayTypeEl=document.querySelector('input[name="relay_type"]:checked');
+    if(!relayTypeEl){alert('請選擇接力類型（10人大隊接力或6人趣味接力）');return;}
+    relayType = relayTypeEl.value;
+    if(relayType==='10人大隊接力'){
+      if(!document.getElementById('relay-team-name').value.trim()){alert('請填寫大隊接力隊伍名稱');return;}
+      if(!document.getElementById('relay-captain-name').value.trim()){alert('請填寫大隊接力隊長姓名');return;}
+      if(!document.getElementById('relay-captain-email').value.trim()){alert('請填寫大隊接力隊長信箱');return;}
+      var rNames=[...document.querySelectorAll('#team-details-relay .member-row input')];
+      var rEmpty=rNames.filter(function(i){return!i.value.trim();});
+      if(rEmpty.length){alert('大隊接力還有 '+rEmpty.length+' 位隊員姓名未填');return;}
+      var rSizes=[...document.querySelectorAll('#team-details-relay .member-row select')];
+      var rSizeEmpty=rSizes.filter(function(s){return!s.value;});
+      if(rSizeEmpty.length){alert('大隊接力還有 '+rSizeEmpty.length+' 位隊員尚未選擇衣服尺寸');return;}
+    } else {
+      if(!document.getElementById('weight-team-name').value.trim()){alert('請填寫趣味接力隊伍名稱');return;}
+      if(!document.getElementById('weight-captain-name').value.trim()){alert('請填寫趣味接力隊長姓名');return;}
+      if(!document.getElementById('weight-captain-email').value.trim()){alert('請填寫趣味接力隊長信箱');return;}
+      var wNames=[...document.querySelectorAll('#team-details-weight .member-row input')];
+      var wEmpty=wNames.filter(function(i){return!i.value.trim();});
+      if(wEmpty.length){alert('趣味接力還有 '+wEmpty.length+' 位隊員姓名未填');return;}
+      var wSizes=[...document.querySelectorAll('#team-details-weight .member-row select')];
+      var wSizeEmpty=wSizes.filter(function(s){return!s.value;});
+      if(wSizeEmpty.length){alert('趣味接力還有 '+wSizeEmpty.length+' 位隊員尚未選擇衣服尺寸');return;}
+    }
   }
 
   // ===== 同步資料到 Google Sheets 後台 =====
@@ -476,33 +624,67 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
 
   var form=this;
   var btn=form.querySelector('.btn-submit');
-  var relayMembers=[...document.querySelectorAll('#team-details-relay .team-grid input')].map(function(i){return i.value.trim();}).filter(Boolean).join('、');
-  var weightMembers=[...document.querySelectorAll('#team-details-weight .team-grid input')].map(function(i){return i.value.trim();}).filter(Boolean).join('、');
+  relayMembers=[...document.querySelectorAll('#team-details-relay .member-row input')].map(function(i){return i.value.trim();}).filter(Boolean).join('、');
+  weightMembers=[...document.querySelectorAll('#team-details-weight .member-row input')].map(function(i){return i.value.trim();}).filter(Boolean).join('、');
+  relayMemberSizes=[...document.querySelectorAll('#team-details-relay .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
+  weightMemberSizes=[...document.querySelectorAll('#team-details-weight .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
   var donateEl=document.querySelector('input[name="shirt_donate"]:checked');
   var countEl=document.querySelector('input[name="shirt_count"]:checked');
 
-  var fd=new FormData();
-  fd.append('name',document.getElementById('name').value.trim());
-  var nidClassVal=document.getElementById('nid-class').value;
-  if(nidClassVal==='NID RUN CLUB戰隊'){
-    var subVal=document.getElementById('nid-sub-team').value;
-    nidClassVal=subVal?subVal:'NID RUN CLUB戰隊';
+  function resolveNidClass(selectId, subSelectId){
+    var v=document.getElementById(selectId).value;
+    if(v==='NID RUN CLUB戰隊'){
+      var subVal=document.getElementById(subSelectId).value;
+      v=subVal?subVal:'NID RUN CLUB戰隊';
+    }
+    return v;
   }
-  fd.append('nid_class',nidClassVal);
-  fd.append('email',document.getElementById('email').value.trim());
-  fd.append('shirt_size',document.getElementById('shirt-size').value);
-  fd.append('events',evts.map(function(c){return c.value;}).join('、'));
+
+  var fd=new FormData();
+  fd.append('name', category==='個人項目' ? document.getElementById('name').value.trim() : '');
+  fd.append('nid_class', category==='個人項目' ? resolveNidClass('nid-class','nid-sub-team') : '');
+  fd.append('email', category==='個人項目' ? document.getElementById('email').value.trim() : '');
+  fd.append('reg_category',category);
+
+  var eventsStr='';
+  if(category==='個人項目'){
+    var labels=[];
+    if(e60==='男')labels.push('個人賽60M男');
+    if(e60==='女')labels.push('個人賽60M女');
+    if(e250==='男')labels.push('個人賽250M男');
+    if(e250==='女')labels.push('個人賽250M女');
+    eventsStr=labels.join('、');
+  } else {
+    eventsStr=relayType;
+  }
+  fd.append('events',eventsStr);
+  fd.append('shirt_size', category==='個人項目' ? document.getElementById('shirt-size').value : '');
+
   fd.append('relay_team_name',document.getElementById('relay-team-name').value.trim());
+  fd.append('relay_nid_class', relayType==='10人大隊接力' ? resolveNidClass('relay-nid-class','relay-nid-sub-team') : '');
+  fd.append('relay_captain_name',document.getElementById('relay-captain-name').value.trim());
+  fd.append('relay_captain_email',document.getElementById('relay-captain-email').value.trim());
   fd.append('relay_members',relayMembers);
+  fd.append('relay_member_sizes',relayMemberSizes);
+
   fd.append('weight_team_name',document.getElementById('weight-team-name').value.trim());
+  fd.append('weight_nid_class', relayType==='6人趣味接力' ? resolveNidClass('weight-nid-class','weight-nid-sub-team') : '');
+  fd.append('weight_captain_name',document.getElementById('weight-captain-name').value.trim());
+  fd.append('weight_captain_email',document.getElementById('weight-captain-email').value.trim());
   fd.append('weight_members',weightMembers);
+  fd.append('weight_member_sizes',weightMemberSizes);
+
   for(var ri=1;ri<=10;ri++){
     var rEl=document.querySelector('input[name="rm'+ri+'"]');
+    var rSizeEl=document.querySelector('select[name="rm'+ri+'_size"]');
     fd.append('rm'+ri, rEl?rEl.value.trim():'');
+    fd.append('rm'+ri+'_size', rSizeEl?rSizeEl.value:'');
   }
   for(var wi=1;wi<=6;wi++){
     var wEl=document.querySelector('input[name="wm'+wi+'"]');
+    var wSizeEl=document.querySelector('select[name="wm'+wi+'_size"]');
     fd.append('wm'+wi, wEl?wEl.value.trim():'');
+    fd.append('wm'+wi+'_size', wSizeEl?wSizeEl.value:'');
   }
   fd.append('shirt_donate',donateEl?donateEl.value:'');
   fd.append('shirt_count',countEl?countEl.value:'');
@@ -521,22 +703,28 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   }
   function buildSummaryHTML(){
     var blocks=[];
-    var indiv=evts.filter(function(c){return EVENT_LABELS[c.value];});
-    if(indiv.length){
-      blocks.push('<div class="summary-block"><div class="summary-block-title">⚡ 個人賽項目</div><ul>'+
-        indiv.map(function(c){return '<li>'+esc(EVENT_LABELS[c.value])+'</li>';}).join('')+
-        '</ul></div>');
-    }
-    if(evts.some(function(c){return c.value==='10人大隊接力';})){
+    if(category==='個人項目'){
+      var indivLabels=eventsStr?eventsStr.split('、'):[];
+      if(indivLabels.length){
+        blocks.push('<div class="summary-block"><div class="summary-block-title">⚡ 個人賽項目</div><ul>'+
+          indivLabels.map(function(v){return '<li>'+esc(EVENT_LABELS[v]||v)+'</li>';}).join('')+
+          '</ul></div>');
+      }
+    } else if(relayType==='10人大隊接力'){
       var relayTeamName=document.getElementById('relay-team-name').value.trim();
+      var relayCaptainName=document.getElementById('relay-captain-name').value.trim();
+      var relayCaptainEmail=document.getElementById('relay-captain-email').value.trim();
       blocks.push('<div class="summary-block"><div class="summary-block-title">🏃 10人大隊接力</div>'+
         '<p><strong>隊伍名稱：</strong>'+esc(relayTeamName)+'</p>'+
+        '<p><strong>隊長：</strong>'+esc(relayCaptainName)+'（'+esc(relayCaptainEmail)+'）</p>'+
         '<p><strong>隊員名單：</strong>'+esc(relayMembers)+'</p></div>');
-    }
-    if(evts.some(function(c){return c.value==='6人趣味接力';})){
+    } else if(relayType==='6人趣味接力'){
       var weightTeamName=document.getElementById('weight-team-name').value.trim();
+      var weightCaptainName=document.getElementById('weight-captain-name').value.trim();
+      var weightCaptainEmail=document.getElementById('weight-captain-email').value.trim();
       blocks.push('<div class="summary-block"><div class="summary-block-title">🎒 6人趣味接力</div>'+
         '<p><strong>隊伍名稱：</strong>'+esc(weightTeamName)+'</p>'+
+        '<p><strong>隊長：</strong>'+esc(weightCaptainName)+'（'+esc(weightCaptainEmail)+'）</p>'+
         '<p><strong>隊員名單：</strong>'+esc(weightMembers)+'</p></div>');
     }
     return blocks.join('');

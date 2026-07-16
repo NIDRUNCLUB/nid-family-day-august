@@ -293,37 +293,6 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
   </div>
 </section>
 
-<section class="stats-section">
-  <div class="section-inner">
-    <span class="section-tag">即時報名狀況</span>
-    <h2 class="section-title">LIVE COUNT</h2>
-    <p class="section-sub">以下為目前各項目的即時報名人數與隊伍數，資料與後台同步更新</p>
-    <div class="stats-grid" id="stats-grid">
-      <div class="stat-card sc-blue"><div class="stat-label">個人賽 60M 男</div><div class="stat-num" id="st-m60">–</div><div class="stat-unit">人報名</div></div>
-      <div class="stat-card sc-pink"><div class="stat-label">個人賽 60M 女</div><div class="stat-num" id="st-f60">–</div><div class="stat-unit">人報名</div></div>
-      <div class="stat-card sc-blue"><div class="stat-label">個人賽 250M 男</div><div class="stat-num" id="st-m250">–</div><div class="stat-unit">人報名</div></div>
-      <div class="stat-card sc-pink"><div class="stat-label">個人賽 250M 女</div><div class="stat-num" id="st-f250">–</div><div class="stat-unit">人報名</div></div>
-      <div class="stat-card sc-orange"><div class="stat-label">🏃 10人大隊接力</div><div class="stat-num" id="st-relay10">–</div><div class="stat-unit">隊報名</div></div>
-      <div class="stat-card sc-purple"><div class="stat-label">🎒 6人趣味接力</div><div class="stat-num" id="st-relay6">–</div><div class="stat-unit">隊報名</div></div>
-    </div>
-    <p class="stats-total">目前累計報名 <strong id="st-total">–</strong> 筆</p>
-  </div>
-</section>
-
-<section class="charity-section">
-  <div class="section-inner">
-    <span class="section-tag">公益行動</span>
-    <h2 class="section-title">RUN FOR LOVE</h2>
-    <p class="section-sub">每一件你穿過、承載無數訓練與比賽回憶的跑衣，都值得被再次穿上、再次奔跑。透過這次活動，我們希望把這份熱愛跑步的心意傳遞出去，讓資源不足的偏鄉孩子也有機會穿上合腳的運動服裝，勇敢邁開步伐、感受運動帶來的自由與自信。</p>
-    <div class="love-steps">
-      <div class="love-step"><div class="step-num c1">01</div><div class="step-title">你帶來跑衣</div><div class="step-desc">攜帶乾淨的二手比賽跑衣（每人最多 2 件），活動當天交給現場工作人員即可。</div></div>
-      <div class="love-step"><div class="step-num c2">02</div><div class="step-title">NID 整理打包</div><div class="step-desc">NID 團隊統一整理、分類，確保每件衣服都能妥善送到需要的人手中。</div></div>
-      <div class="love-step"><div class="step-num c3">03</div><div class="step-title">送愛到偏鄉</div><div class="step-desc">跑衣將送往偏鄉社區，讓跑步的種子在更多地方萌芽，讓更多孩子感受奔跑的自由。</div></div>
-    </div>
-    <div class="singlet-note"><p>👕 <strong>捐贈須知</strong>：捐贈物品為「比賽跑衣」（無袖、深U領、側邊大開口設計），不限品牌與尺寸。請確保乾淨無破損。捐贈為自願性，不影響報名資格。</p></div>
-  </div>
-</section>
-
 <section class="form-section">
   <div class="section-inner">
     <span class="section-tag">立刻報名</span>
@@ -342,7 +311,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
 
         <div id="individual-section" style="display:none;">
           <div class="form-group"><label for="name">姓名 *</label><input type="text" id="name" name="name" placeholder="請輸入真實姓名"/></div>
-          <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+          <div class="form-group"><label for="nid-class">隸屬戰隊</label><select id="nid-class" name="nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>NID Base+戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
           <div class="form-group" id="nidSubTeamGroup" style="display:none;"><label for="nid-sub-team">請選擇你的分隊</label><select id="nid-sub-team" name="nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
           <div class="form-group"><label for="email">電子信箱 *</label><input type="email" id="email" name="email" placeholder="報名確認信會寄送至此"/></div>
           <div class="form-group"><label for="shirt-size">衣服尺寸 *</label><select id="shirt-size" name="shirt_size"><option value="">請選擇尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select><p class="form-hint">活動紀念服／運動背心尺寸，請依平常穿著習慣選擇</p></div>
@@ -376,7 +345,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <div id="team-details-relay" style="display:none;">
             <div class="team-details-box">
               <div class="form-group"><label for="relay-team-name">隊伍名稱 *</label><input type="text" id="relay-team-name" name="relay_team_name" placeholder="幫你的隊伍取個霸氣的名字！"/></div>
-              <div class="form-group"><label for="relay-nid-class">隸屬戰隊</label><select id="relay-nid-class" name="relay_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+              <div class="form-group"><label for="relay-nid-class">隸屬戰隊</label><select id="relay-nid-class" name="relay_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>NID Base+戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
               <div class="form-group" id="relayNidSubTeamGroup" style="display:none;"><label for="relay-nid-sub-team">請選擇分隊</label><select id="relay-nid-sub-team" name="relay_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
               <div class="form-group"><label for="relay-captain-name">隊長姓名 *</label><input type="text" id="relay-captain-name" name="relay_captain_name" placeholder="請輸入隊長真實姓名"/></div>
               <div class="form-group"><label for="relay-captain-email">隊長信箱 *</label><input type="email" id="relay-captain-email" name="relay_captain_email" placeholder="隊長的電子信箱"/></div>
@@ -399,7 +368,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <div id="team-details-weight" style="display:none;">
             <div class="team-details-box">
               <div class="form-group"><label for="weight-team-name">隊伍名稱 *</label><input type="text" id="weight-team-name" name="weight_team_name" placeholder="幫你的隊伍取個名字！"/></div>
-              <div class="form-group"><label for="weight-nid-class">隸屬戰隊</label><select id="weight-nid-class" name="weight_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
+              <div class="form-group"><label for="weight-nid-class">隸屬戰隊</label><select id="weight-nid-class" name="weight_nid_class"><option value="">請選擇（非戰隊成員請選「其他戰隊」）</option><option>NID RUN CLUB戰隊</option><option>NID Base+戰隊</option><option>汐慢戰隊</option><option>新莊慢跑戰隊</option><option>其他戰隊</option></select></div>
               <div class="form-group" id="weightNidSubTeamGroup" style="display:none;"><label for="weight-nid-sub-team">請選擇分隊</label><select id="weight-nid-sub-team" name="weight_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
               <div class="form-group"><label for="weight-captain-name">隊長姓名 *</label><input type="text" id="weight-captain-name" name="weight_captain_name" placeholder="請輸入隊長真實姓名"/></div>
               <div class="form-group"><label for="weight-captain-email">隊長信箱 *</label><input type="email" id="weight-captain-email" name="weight_captain_email" placeholder="隊長的電子信箱"/></div>
@@ -460,6 +429,37 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
         <a href="https://line.me/ti/g2/5BBOmVbrCiD6m8Uzy6xigwzM1qihEJ_U0JUcKA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="line-btn">➕ 加入活動 LINE 群組</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="section-inner">
+    <span class="section-tag">即時報名狀況</span>
+    <h2 class="section-title">LIVE COUNT</h2>
+    <p class="section-sub">以下為目前各項目的即時報名人數與隊伍數，資料與後台同步更新</p>
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card sc-blue"><div class="stat-label">個人賽 60M 男</div><div class="stat-num" id="st-m60">–</div><div class="stat-unit">人報名</div></div>
+      <div class="stat-card sc-pink"><div class="stat-label">個人賽 60M 女</div><div class="stat-num" id="st-f60">–</div><div class="stat-unit">人報名</div></div>
+      <div class="stat-card sc-blue"><div class="stat-label">個人賽 250M 男</div><div class="stat-num" id="st-m250">–</div><div class="stat-unit">人報名</div></div>
+      <div class="stat-card sc-pink"><div class="stat-label">個人賽 250M 女</div><div class="stat-num" id="st-f250">–</div><div class="stat-unit">人報名</div></div>
+      <div class="stat-card sc-orange"><div class="stat-label">🏃 10人大隊接力</div><div class="stat-num" id="st-relay10">–</div><div class="stat-unit">隊報名</div></div>
+      <div class="stat-card sc-purple"><div class="stat-label">🎒 6人趣味接力</div><div class="stat-num" id="st-relay6">–</div><div class="stat-unit">隊報名</div></div>
+    </div>
+    <p class="stats-total">目前累計報名 <strong id="st-total">–</strong> 筆</p>
+  </div>
+</section>
+
+<section class="charity-section">
+  <div class="section-inner">
+    <span class="section-tag">公益行動</span>
+    <h2 class="section-title">RUN FOR LOVE</h2>
+    <p class="section-sub">每一件你穿過、承載無數訓練與比賽回憶的跑衣，都值得被再次穿上、再次奔跑。透過這次活動，我們希望把這份熱愛跑步的心意傳遞出去，讓資源不足的偏鄉孩子也有機會穿上合腳的運動服裝，勇敢邁開步伐、感受運動帶來的自由與自信。</p>
+    <div class="love-steps">
+      <div class="love-step"><div class="step-num c1">01</div><div class="step-title">你帶來跑衣</div><div class="step-desc">攜帶乾淨的二手比賽跑衣（每人最多 2 件），活動當天交給現場工作人員即可。</div></div>
+      <div class="love-step"><div class="step-num c2">02</div><div class="step-title">NID 整理打包</div><div class="step-desc">NID 團隊統一整理、分類，確保每件衣服都能妥善送到需要的人手中。</div></div>
+      <div class="love-step"><div class="step-num c3">03</div><div class="step-title">送愛到偏鄉</div><div class="step-desc">跑衣將送往偏鄉社區，讓跑步的種子在更多地方萌芽，讓更多孩子感受奔跑的自由。</div></div>
+    </div>
+    <div class="singlet-note"><p>👕 <strong>捐贈須知</strong>：捐贈物品為「比賽跑衣」（無袖、深U領、側邊大開口設計），不限品牌與尺寸。請確保乾淨無破損。捐贈為自願性，不影響報名資格。</p></div>
   </div>
 </section>
 

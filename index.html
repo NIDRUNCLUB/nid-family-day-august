@@ -390,8 +390,8 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-yes" value="是"/> 👕 是，我會帶來</label></div><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-no" value="否"/> 下次再說</label></div></div>
           <p class="form-hint">自願捐贈乾淨二手比賽跑衣，當天交給工作人員</p>
         </div>
-        <div class="form-group" id="shirt-count-group" style="display:none;"><label>預計捐贈幾件？</label>
-          <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_count" value="1"/> 1 件</label></div><div class="radio-btn"><label><input type="radio" name="shirt_count" value="2"/> 2 件</label></div></div>
+        <div class="form-group" id="shirt-count-group" style="display:none;"><label for="shirt-count">預計捐贈幾件？</label>
+          <input type="number" id="shirt-count" name="shirt_count" min="1" step="1" placeholder="請輸入預計捐贈件數"/>
         </div>
         <div class="consent-section">
           <div style="margin-bottom:16px;">
@@ -499,7 +499,7 @@ function toggleDisclaimer(){
 }
 
 document.getElementById('shirt-yes').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='block';});
-document.getElementById('shirt-no').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='none';document.querySelectorAll('input[name="shirt_count"]').forEach(function(x){x.checked=false;});});
+document.getElementById('shirt-no').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='none';document.getElementById('shirt-count').value='';});
 document.getElementById('nid-class').addEventListener('change',function(){
   var showSub = this.value === 'NID RUN CLUB戰隊';
   document.getElementById('nidSubTeamGroup').style.display = showSub ? 'block' : 'none';
@@ -635,7 +635,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   relayMemberSizes=[...document.querySelectorAll('#team-details-relay .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
   weightMemberSizes=[...document.querySelectorAll('#team-details-weight .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
   var donateEl=document.querySelector('input[name="shirt_donate"]:checked');
-  var countEl=document.querySelector('input[name="shirt_count"]:checked');
+  var countEl=document.getElementById('shirt-count');
 
   function resolveNidClass(selectId, subSelectId){
     var v=document.getElementById(selectId).value;
@@ -693,7 +693,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
     fd.append('wm'+wi+'_size', wSizeEl?wSizeEl.value:'');
   }
   fd.append('shirt_donate',donateEl?donateEl.value:'');
-  fd.append('shirt_count',countEl?countEl.value:'');
+  fd.append('shirt_count',countEl?countEl.value.trim():'');
 
   function showSuccess(){
   var EVENT_LABELS={

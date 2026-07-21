@@ -133,6 +133,12 @@ section{padding:64px 24px;}
 .form-group label{display:block;font-size:13.5px;font-weight:700;margin-bottom:8px;color:var(--ink);}
 .form-group input,.form-group select{width:100%;border:2px solid rgba(255,255,255,.22);border-radius:8px;padding:11px 14px;font-size:15px;font-family:var(--font-body);background:var(--cream);color:var(--ink);transition:border-color .18s,box-shadow .18s;}
 .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(79,143,255,.18);}
+.signup-rules{margin-top:14px;background:rgba(240,180,41,.10);border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;}
+.signup-rules-title{font-size:13.5px;font-weight:700;color:var(--gold);margin-bottom:8px;}
+.signup-rules ul{margin:0;padding-left:18px;list-style:disc;}
+.signup-rules li{font-size:13px;color:rgba(255,255,255,.82);line-height:1.95;}
+.signup-rules strong{color:var(--gold);}
+.signup-rules-sum{font-size:13px;color:rgba(255,255,255,.9);margin-top:10px;padding-top:10px;border-top:1px solid rgba(240,180,41,.25);line-height:1.7;}
 .form-hint{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.6;}
 .form-divider{border:none;border-top:2px dashed rgba(255,255,255,.22);margin:26px 0;}
 .checkbox-group{display:flex;flex-direction:column;gap:9px;}
@@ -305,6 +311,15 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <div class="radio-group">
             <div class="radio-btn"><label><input type="radio" name="reg_category" value="個人項目" id="cat-individual" required/> ⚡ 個人項目（個人賽）</label></div>
             <div class="radio-btn"><label><input type="radio" name="reg_category" value="團體項目" id="cat-team"/> 🏃 團體項目（大隊接力／趣味接力）</label></div>
+          </div>
+          <div class="signup-rules">
+            <p class="signup-rules-title">📋 報名規則</p>
+            <ul>
+              <li><strong>每人最多報名 2 項</strong></li>
+              <li>個人賽二擇一：60 公尺 ／ 250 公尺</li>
+              <li>接力賽擇一：10 人接力 ／ 6 人接力</li>
+            </ul>
+            <p class="signup-rules-sum">➜ 每人最多為 <strong>1 個個人項目 ＋ 1 個接力項目</strong></p>
           </div>
         </div>
 

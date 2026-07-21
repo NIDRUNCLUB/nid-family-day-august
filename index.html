@@ -306,7 +306,6 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
             <div class="radio-btn"><label><input type="radio" name="reg_category" value="個人項目" id="cat-individual" required/> ⚡ 個人項目（個人賽）</label></div>
             <div class="radio-btn"><label><input type="radio" name="reg_category" value="團體項目" id="cat-team"/> 🏃 團體項目（大隊接力／趣味接力）</label></div>
           </div>
-          <p class="category-hint">因活動訂製跑衣需精準備料，每人僅能擇一類別報名，請勿重複登記</p>
         </div>
 
         <div id="individual-section" style="display:none;">
@@ -328,7 +327,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
               <div class="radio-btn"><label><input type="radio" name="event_250m" value="男"/> 男生組</label></div>
               <div class="radio-btn"><label><input type="radio" name="event_250m" value="女"/> 女生組</label></div>
             </div>
-            <p class="form-hint">60M／250M 可依需求各自選擇是否參加，兩者皆可同時報名</p>
+            <p class="form-hint">60M／250M 僅能擇一報名</p>
           </div>
         </div>
 
@@ -339,7 +338,6 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
               <div class="radio-btn"><label><input type="radio" name="relay_type" value="10人大隊接力" id="relay-type-10"/> 🏃 10人大隊接力（10×250M）</label></div>
               <div class="radio-btn"><label><input type="radio" name="relay_type" value="6人趣味接力" id="relay-type-6"/> 🎒 6人趣味接力（一人 250M）</label></div>
             </div>
-            <p class="category-hint">同一隊伍僅能擇一種接力賽制報名</p>
           </div>
 
           <div id="team-details-relay" style="display:none;">
@@ -557,10 +555,20 @@ document.querySelectorAll('input[name="relay_type"]').forEach(function(r){
   });
 });
 document.getElementById('join-60m').addEventListener('change',function(){
+  if(this.checked){
+    document.getElementById('join-250m').checked=false;
+    document.getElementById('gender-250m-group').style.display='none';
+    document.querySelectorAll('input[name="event_250m"]').forEach(function(r){r.checked=false;});
+  }
   document.getElementById('gender-60m-group').style.display=this.checked?'flex':'none';
   if(!this.checked){document.querySelectorAll('input[name="event_60m"]').forEach(function(r){r.checked=false;});}
 });
 document.getElementById('join-250m').addEventListener('change',function(){
+  if(this.checked){
+    document.getElementById('join-60m').checked=false;
+    document.getElementById('gender-60m-group').style.display='none';
+    document.querySelectorAll('input[name="event_60m"]').forEach(function(r){r.checked=false;});
+  }
   document.getElementById('gender-250m-group').style.display=this.checked?'flex':'none';
   if(!this.checked){document.querySelectorAll('input[name="event_250m"]').forEach(function(r){r.checked=false;});}
 });
@@ -583,7 +591,8 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
     if(document.getElementById('nid-class').value==='NID RUN CLUB戰隊' && !document.getElementById('nid-sub-team').value){alert('請選擇分隊');return;}
     var join60=document.getElementById('join-60m').checked;
     var join250=document.getElementById('join-250m').checked;
-    if(!join60 && !join250){alert('請至少選擇一個個人賽項目（60M 或 250M）');return;}
+    if(!join60 && !join250){alert('請選擇一個個人賽項目（60M 或 250M）');return;}
+    if(join60 && join250){alert('個人賽僅能擇一報名（60M 或 250M）');return;}
     if(join60){
       var e60El=document.querySelector('input[name="event_60m"]:checked');
       if(!e60El){alert('請選擇 60M 的男女組別');return;}

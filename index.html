@@ -350,8 +350,8 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <div class="form-group">
             <label>接力類型 *（擇一）</label>
             <div class="radio-group">
-              <div class="radio-btn"><label><input type="radio" name="relay_type" value="10人大隊接力" id="relay-type-10"/> 🏃 10人大隊接力（10×250M）</label></div>
-              <div class="radio-btn"><label><input type="radio" name="relay_type" value="6人趣味接力" id="relay-type-6"/> 🎒 6人趣味接力（一人 250M）</label></div>
+              <div class="radio-btn"><label><input type="radio" name="relay_type" value="10人大隊接力" id="relay-type-10"/> 🏃 10人大隊接力（10×250M・須含至少 4 位女生）</label></div>
+              <div class="radio-btn"><label><input type="radio" name="relay_type" value="6人趣味接力" id="relay-type-6"/> 🎒 6人趣味接力（一人 250M・須含至少 3 位女生）</label></div>
             </div>
           </div>
 
@@ -362,7 +362,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
               <div class="form-group" id="relayNidSubTeamGroup" style="display:none;"><label for="relay-nid-sub-team">請選擇分隊 *</label><select id="relay-nid-sub-team" name="relay_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
               <div class="form-group"><label for="relay-captain-name">隊長姓名 *</label><input type="text" id="relay-captain-name" name="relay_captain_name" placeholder="請輸入隊長真實姓名"/></div>
               <div class="form-group"><label for="relay-captain-email">隊長信箱 *</label><input type="email" id="relay-captain-email" name="relay_captain_email" placeholder="隊長的電子信箱"/></div>
-              <div class="form-group" style="margin-bottom:0;"><label>10 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 10 人，每人皆需選擇衣服尺寸</p>
+              <div class="form-group" style="margin-bottom:0;"><label>10 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 10 人，每人皆需選擇衣服尺寸。<strong style="color:var(--gold);">隊伍須包含至少 4 位女生</strong></p>
               <div class="member-rows">
                 <div class="member-row"><input type="text" name="rm1" placeholder="第 1 棒 姓名"/><select name="rm1_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
                 <div class="member-row"><input type="text" name="rm2" placeholder="第 2 棒 姓名"/><select name="rm2_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
@@ -385,7 +385,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
               <div class="form-group" id="weightNidSubTeamGroup" style="display:none;"><label for="weight-nid-sub-team">請選擇分隊 *</label><select id="weight-nid-sub-team" name="weight_nid_sub_team"><option value="">請選擇分隊</option><option>凱為戰隊</option><option>承勳戰隊</option><option>智遠戰隊</option><option>姚姚戰隊</option><option>阿飛戰隊</option><option>竺均戰隊</option><option>柏鈞戰隊</option><option>佩珊戰隊</option><option>明志戰隊</option><option>肯尼戰隊</option></select></div>
               <div class="form-group"><label for="weight-captain-name">隊長姓名 *</label><input type="text" id="weight-captain-name" name="weight_captain_name" placeholder="請輸入隊長真實姓名"/></div>
               <div class="form-group"><label for="weight-captain-email">隊長信箱 *</label><input type="email" id="weight-captain-email" name="weight_captain_email" placeholder="隊長的電子信箱"/></div>
-              <div class="form-group" style="margin-bottom:0;"><label>6 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 6 人，每人皆需選擇衣服尺寸</p>
+              <div class="form-group" style="margin-bottom:0;"><label>6 位隊員姓名與衣服尺寸 *</label><p class="form-hint" style="margin-bottom:8px;">依棒次填寫，包含自己在內共 6 人，每人皆需選擇衣服尺寸。<strong style="color:var(--gold);">隊伍須包含至少 3 位女生</strong></p>
               <div class="member-rows">
                 <div class="member-row"><input type="text" name="wm1" placeholder="第 1 棒 姓名"/><select name="wm1_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
                 <div class="member-row"><input type="text" name="wm2" placeholder="第 2 棒 姓名"/><select name="wm2_size"><option value="">尺寸</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>

@@ -410,7 +410,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
           <p class="form-hint">自願捐贈乾淨二手比賽跑衣，當天交給工作人員</p>
         </div>
         <div class="form-group" id="shirt-count-group" style="display:none;"><label for="shirt-count">預計捐贈幾件？</label>
-          <input type="number" id="shirt-count" name="shirt_count" min="1" step="1" placeholder="請輸入預計捐贈件數"/>
+          <input type="number" id="shirt-count" name="shirt_count" min="1" max="5" step="1" placeholder="請輸入預計捐贈件數（最多 5 件）"/>
         </div>
         <div class="consent-section">
           <div style="margin-bottom:16px;">
@@ -666,6 +666,12 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   weightMemberSizes=[...document.querySelectorAll('#team-details-weight .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
   var donateEl=document.querySelector('input[name="shirt_donate"]:checked');
   var countEl=document.getElementById('shirt-count');
+
+  if(donateEl && donateEl.value==='是'){
+    var cnt=parseInt(countEl.value,10);
+    if(isNaN(cnt) || cnt<1){alert('請輸入預計捐贈件數');return;}
+    if(cnt>5){alert('預計捐贈件數最多 5 件');return;}
+  }
 
   function resolveNidClass(selectId, subSelectId){
     var v=document.getElementById(selectId).value;

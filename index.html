@@ -410,8 +410,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
         </div>
 
         <hr class="form-divider"/>
-        <div class="form-group"><label>是否捐贈二手比賽跑衣？</label>
-          <div class="radio-group"><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-yes" value="是"/> 👕 是，我會帶來</label></div><div class="radio-btn"><label><input type="radio" name="shirt_donate" id="shirt-no" value="否"/> 下次再說</label></div></div>
+        <div class="form-group">
           <p class="form-hint">自願捐贈乾淨二手比賽跑衣，當天交給工作人員</p>
           <div class="donate-rules">
             <p class="donate-rules-title">📦 捐衣收取規範</p>
@@ -424,9 +423,6 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
             <p class="donate-rules-note">＊現場報到／捐贈區將協助檢查，不符規範之物資將婉謝收取，敬請見諒。</p>
             <p class="donate-rules-note">＊衣物整理與清潔標準可參考「捐好好捐」衣物整理須知：<a href="https://sites.google.com/view/goodeeds2018/%E8%A1%A3%E7%89%A9%E6%95%B4%E7%90%86%E9%A0%88%E7%9F%A5?authuser=0" target="_blank" rel="noopener">捐好好捐 衣物整理須知</a></p>
           </div>
-        </div>
-        <div class="form-group" id="shirt-count-group" style="display:none;"><label for="shirt-count">預計捐贈幾件？</label>
-          <input type="number" id="shirt-count" name="shirt_count" min="1" max="5" step="1" placeholder="請輸入預計捐贈件數（最多 5 件）"/>
         </div>
         <div class="consent-section">
           <div style="margin-bottom:16px;">
@@ -519,8 +515,6 @@ function toggleDisclaimer(){
     :'📋 活動免責聲明與參加規範（點擊展開閱讀）';
 }
 
-document.getElementById('shirt-yes').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='block';});
-document.getElementById('shirt-no').addEventListener('change',function(){document.getElementById('shirt-count-group').style.display='none';document.getElementById('shirt-count').value='';});
 document.getElementById('nid-class').addEventListener('change',function(){
   var showSub = this.value === 'NID RUN CLUB戰隊';
   document.getElementById('nidSubTeamGroup').style.display = showSub ? 'block' : 'none';
@@ -666,15 +660,6 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   weightMembers=[...document.querySelectorAll('#team-details-weight .member-row input')].map(function(i){return i.value.trim();}).filter(Boolean).join('、');
   relayMemberSizes=[...document.querySelectorAll('#team-details-relay .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
   weightMemberSizes=[...document.querySelectorAll('#team-details-weight .member-row select')].map(function(s){return s.value;}).filter(Boolean).join('、');
-  var donateEl=document.querySelector('input[name="shirt_donate"]:checked');
-  var countEl=document.getElementById('shirt-count');
-
-  if(donateEl && donateEl.value==='是'){
-    var cnt=parseInt(countEl.value,10);
-    if(isNaN(cnt) || cnt<1){alert('請輸入預計捐贈件數');return;}
-    if(cnt>5){alert('預計捐贈件數最多 5 件');return;}
-  }
-
   function resolveNidClass(selectId, subSelectId){
     var v=document.getElementById(selectId).value;
     if(v==='NID RUN CLUB戰隊'){
@@ -730,8 +715,6 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
     fd.append('wm'+wi, wEl?wEl.value.trim():'');
     fd.append('wm'+wi+'_size', wSizeEl?wSizeEl.value:'');
   }
-  fd.append('shirt_donate',donateEl?donateEl.value:'');
-  fd.append('shirt_count',countEl?countEl.value.trim():'');
 
   function showSuccess(){
   var EVENT_LABELS={

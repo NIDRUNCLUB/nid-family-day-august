@@ -43,13 +43,6 @@ body{background:#000;color:var(--ink);font-family:var(--font-body);line-height:1
 .heart-word{color:var(--logo-yellow);}
 .hero-subtitle{font-family:var(--font-mono);font-size:17px;letter-spacing:.12em;opacity:.75;margin-bottom:40px;}
 
-.hero-anim{width:230px;height:270px;position:relative;margin:0 auto 44px;overflow:hidden;}
-.anim-singlet-clip{position:absolute;top:-200px;left:0;right:0;height:358px;overflow:hidden;z-index:4;pointer-events:none;}
-.anim-singlet{position:absolute;top:250px;left:77px;animation:singletFall 5s ease-in-out infinite;}
-.anim-box-interior{position:absolute;bottom:0;left:29px;z-index:2;}
-.anim-box-front{position:absolute;bottom:0;left:29px;z-index:3;}
-.anim-box-rim{position:absolute;bottom:96px;left:29px;z-index:5;}
-@keyframes singletFall{0%,12%{transform:translateY(-80px);opacity:0;}15%{transform:translateY(-80px);opacity:1;}62%{transform:translateY(115px);opacity:1;}70%{transform:translateY(115px);opacity:0;}100%{transform:translateY(115px);opacity:0;}}
 
 .hero-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:640px;margin:0 auto;}
 .hero-meta span{background:rgba(255,255,255,.13);border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 18px;font-size:13px;backdrop-filter:blur(10px);}
@@ -206,6 +199,24 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
 .rules-toggle summary::marker{color:var(--gold);}
 .rules-toggle p{margin:6px 0 0;padding-left:2px;color:var(--muted);font-size:13px;line-height:1.65;}
 .rules-toggle p strong{color:var(--ink);}
+
+/* WHY WE RUN blocks — match mission section (dark cream + gold accent) */
+.why-blocks{margin-top:36px;display:flex;flex-direction:column;gap:18px;text-align:left;}
+.why-block{background:rgba(240,180,41,.08);border:1px solid rgba(240,180,41,.28);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:22px 24px;}
+.why-label{font-family:var(--font-display);font-size:22px;letter-spacing:.02em;margin-bottom:12px;display:flex;align-items:center;gap:10px;color:var(--white);}
+.why-tag{display:inline-block;background:var(--gold);color:#141414;border-radius:6px;padding:3px 12px;font-family:var(--font-mono);font-size:13px;font-weight:700;letter-spacing:.08em;}
+.why-block p{font-size:15px;line-height:1.8;margin-bottom:8px;color:rgba(255,255,255,.82);}
+.why-block p:last-child{margin-bottom:0;}
+/* 捐衣收取規範 — match charity section note (gold-tinted glass on black) */
+.donate-rules{margin-top:22px;background:rgba(240,180,41,.10);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;text-align:left;}
+.donate-rules-title{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:12px;letter-spacing:.02em;}
+.donate-rules ul{list-style:none;padding:0;margin:0 0 12px;}
+.donate-rules li{font-size:14px;line-height:1.7;padding:8px 0 8px 22px;border-bottom:1px dashed rgba(255,255,255,.14);position:relative;color:rgba(255,255,255,.85);}
+.donate-rules li:last-child{border-bottom:none;}
+.donate-rules li strong{color:var(--gold);}
+.donate-rules li::before{content:"\25B6";position:absolute;left:0;color:var(--gold);font-size:10px;top:11px;}
+.donate-rules-note{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.6);margin-top:6px;}
+.donate-rules-note a{color:var(--blue);font-weight:600;text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -221,30 +232,6 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
   <p class="hero-eyebrow">NID RUN CLUB · FAMILY DAY '26 · VOL.4</p>
   <h1 class="hero-title"><span class="nid-word">NID</span><br>RUN FOR<br><span class="heart-word">LOVE ♥</span></h1>
   <p class="hero-subtitle">08.23 · SUN · 4PM</p>
-
-  <div class="hero-anim" aria-hidden="true">
-    <div class="anim-box-interior">
-      <svg width="172" height="112" viewBox="0 0 172 112" fill="none"><rect width="172" height="112" rx="5" fill="#3A1C04" stroke="#1A0A02" stroke-width="2"/><rect x="8" y="10" width="156" height="94" rx="3" fill="#2A1204" opacity=".8"/></svg>
-    </div>
-    <div class="anim-singlet-clip">
-    <div class="anim-singlet">
-      <svg width="76" height="92" viewBox="0 0 76 92" fill="none">
-        <path d="M 18 0 L 26 0 C 30 28 46 28 50 0 L 58 0 Q 70 22 62 42 L 64 90 L 12 90 L 14 42 Q 6 22 18 0 Z" fill="#1a1a1a" stroke="#FFE100" stroke-width="2.5" stroke-linejoin="round"/>
-<path d="M 18 2 Q 8 20 15 40 L 18 38 Q 9 20 22 3 Z" fill="#FFE100" opacity=".18"/>
-<path d="M 58 2 Q 68 20 61 40 L 58 38 Q 67 20 54 3 Z" fill="#FFE100" opacity=".18"/>
-<path d="M 27 1 C 31 24 45 24 49 1 L 46 1 C 43 21 33 21 30 1 Z" fill="#FFE100" opacity=".25"/>
-<rect x="26" y="48" width="24" height="17" rx="4" fill="#FFE100" opacity=".85"/>
-<text x="38" y="61" text-anchor="middle" font-size="13" fill="#1a1a1a">♥</text>
-      </svg>
-    </div>
-    </div>
-    <div class="anim-box-front">
-      <svg width="172" height="96" viewBox="0 0 172 96" fill="none"><rect width="172" height="96" fill="#C4883A"/><line x1="0" y1="24" x2="172" y2="24" stroke="#A6721E" stroke-width=".8" opacity=".45"/><line x1="0" y1="48" x2="172" y2="48" stroke="#A6721E" stroke-width=".8" opacity=".45"/><line x1="0" y1="72" x2="172" y2="72" stroke="#A6721E" stroke-width=".8" opacity=".45"/><rect x="24" y="18" width="124" height="58" rx="4" fill="white" opacity=".93"/><rect x="60" y="11" width="52" height="14" rx="2" fill="#EDD86A" opacity=".52"/><text x="86" y="30" text-anchor="middle" font-size="11" fill="#C4883A">♥</text><text x="86" y="48" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="15" font-weight="900" fill="#3D2400" letter-spacing="2">捐贈跑衣</text><text x="86" y="66" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7A4E10" letter-spacing="1">Run For Love 2026</text><path d="M0 0 L0 96 L172 96 L172 0" fill="none" stroke="#2A1504" stroke-width="2.5" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="anim-box-rim">
-      <svg width="172" height="16" viewBox="0 0 172 16" fill="none"><rect width="172" height="16" fill="#B07828" stroke="#2A1504" stroke-width="1.5"/><rect y="0" width="172" height="3.5" fill="#D4A53A"/><rect y="12.5" width="172" height="3.5" fill="#7A4E10" opacity=".55"/></svg>
-    </div>
-  </div>
 
   <div class="hero-meta">
     <span><strong>日期</strong> 2026.08.23（日）</span>
@@ -266,6 +253,23 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
     <span class="section-tag">關於 RUN FOR LOVE</span>
     <h2 class="section-title">WHY WE RUN</h2>
     <p class="section-sub">NID RUN CLUB 從創辦以來，一直相信跑步教會我們的不只是配速和肌力，還有堅持、互助與分享。Run For Love 就是我們把這份信念化為行動的方式——邀請跑友們捐出乾淨的二手比賽跑衣，讓愛心跟著里程數一起累積，送到資源不足的偏鄉，陪伴更多孩子勇敢邁開步伐。這件事，我們已經<strong>持續做了 3 年</strong>，而今年，邀請你一起加入。</p>
+    <div class="why-blocks">
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">WHY</span>為什麼要辦</div>
+        <p>在台灣，一年約有 300 場馬拉松賽事，每場賽事幾乎都會製作賽事服送給跑者。正因參加的賽事太多，跑者們往往穿不到這些贈送的衣服，相關物資反而成為一種負擔與困擾。</p>
+        <p>與此同時，偏鄉地區與偏鄉基層校隊，卻有許多學生連一件舒適、適合訓練與運動的服裝都沒有。資源在兩端之間出現了嚴重的落差。</p>
+      </div>
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">HOW</span>我們怎麼做</div>
+        <p>NID 希望透過「RUN FOR LOVE」這場公益運動會，集結跑者們攜帶物資到場，一起跑步、一起做公益，讓熱血同時產生正向的社會影響力。</p>
+        <p>藉此不僅解決跑者「物資過剩」的困擾，也把資源導向真正需要的偏鄉機構與基層校隊，解決偏鄉缺乏運動物資的問題。</p>
+      </div>
+      <div class="why-block">
+        <div class="why-label"><span class="why-tag">WHAT</span>我們想達成</div>
+        <p>讓跑友們捐贈的物資能夠被有效整理與分配，精準送到真正需要幫助的人手中，把「愛」一棒接一棒地傳遞下去（Pay It Forward）。</p>
+        <p>誠摯邀請貴單位一同參與，以熱血運動傳遞愛心！</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -318,6 +322,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
               <li><strong>每人最多報名 2 項</strong></li>
               <li>個人賽二擇一：60 公尺 ／ 250 公尺</li>
               <li>接力賽擇一：10 人接力 ／ 6 人接力</li>
+              <li><strong>NID RUN CLUB 教練</strong>如需下場參與，僅能參加<strong>團體接力項目</strong>，且團體項目僅能<strong>擇一參加</strong>，每 1 隊伍限 1 位教練</li>
             </ul>
             <p class="signup-rules-sum">➜ 每人最多為 <strong>1 個個人項目 ＋ 1 個接力項目</strong></p>
             <p class="signup-rules-sum" style="margin-top:8px;border-top:none;padding-top:0;">📊 <strong>各戰隊名額</strong></p>
@@ -479,6 +484,17 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
       <div class="love-step"><div class="step-num c3">03</div><div class="step-title">送愛到偏鄉</div><div class="step-desc">跑衣將送往偏鄉社區，讓跑步的種子在更多地方萌芽，讓更多孩子感受奔跑的自由。</div></div>
     </div>
     <div class="singlet-note"><p>👕 <strong>捐贈須知</strong>：捐贈物品為「比賽跑衣」（無袖、深U領、側邊大開口設計），不限品牌與尺寸。請確保乾淨無破損。捐贈為自願性，不影響報名資格。</p></div>
+    <div class="donate-rules">
+      <p class="donate-rules-title">📦 捐衣收取規範</p>
+      <ul>
+        <li><strong>新舊程度：</strong>衣物須達 9 成新，並事先清洗乾淨後再捐贈。</li>
+        <li><strong>收取種類：</strong>僅收「運動排汗衫」或「運動背心」。</li>
+        <li><strong>不收材質：</strong>棉質衣物一律不收。</li>
+        <li><strong>品況要求：</strong>有污漬、破損或明顯使用痕跡者，恕不收取。</li>
+      </ul>
+      <p class="donate-rules-note">＊現場報到／捐贈區將協助檢查，不符規範之物資將婉謝收取，敬請見諒。</p>
+      <p class="donate-rules-note">＊衣物整理與清潔標準可參考「捐好好捐」衣物整理須知：<a href="https://sites.google.com/view/goodeeds2018/%E8%A1%A3%E7%89%A9%E6%95%B4%E7%90%86%E9%A0%88%E7%9F%A5?authuser=0" target="_blank" rel="noopener">捐好好捐 衣物整理須知</a></p>
+    </div>
   </div>
 </section>
 

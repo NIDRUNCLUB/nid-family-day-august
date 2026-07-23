@@ -457,6 +457,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.32);text-align:center;padding:
         <h3>報名成功！</h3>
         <div id="success-summary"></div>
         <p>確認信會在幾分鐘內寄到你的信箱。<br/>最後一步——加入活動 LINE 群組，<br/>當天集合資訊、注意事項都在裡面！</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.55);margin-top:-14px;">⚠️ 若幾分鐘後仍沒收到確認信，可能是信箱填錯或信件跑到垃圾信匣，請聯絡主辦單位協助確認。</p>
         <a href="https://line.me/ti/g2/5BBOmVbrCiD6m8Uzy6xigwzM1qihEJ_U0JUcKA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" class="line-btn">➕ 加入活動 LINE 群組</a>
       </div>
     </div>
@@ -603,6 +604,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
   if(category==='個人項目'){
     if(!document.getElementById('name').value.trim()){alert('請填寫姓名');return;}
     if(!document.getElementById('email').value.trim()){alert('請填寫電子信箱');return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value.trim())){alert('電子信箱格式不正確，請確認拼字（例如 name@gmail.com）');return;}
     if(!document.getElementById('shirt-size').value){alert('請選擇衣服尺寸');return;}
     if(!document.getElementById('nid-class').value){alert('請選擇隸屬戰隊');return;}
     if(document.getElementById('nid-class').value==='NID RUN CLUB戰隊' && !document.getElementById('nid-sub-team').value){alert('請選擇分隊');return;}
@@ -628,6 +630,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
       if(!document.getElementById('relay-team-name').value.trim()){alert('請填寫大隊接力隊伍名稱');return;}
       if(!document.getElementById('relay-captain-name').value.trim()){alert('請填寫大隊接力隊長姓名');return;}
       if(!document.getElementById('relay-captain-email').value.trim()){alert('請填寫大隊接力隊長信箱');return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('relay-captain-email').value.trim())){alert('大隊接力隊長信箱格式不正確，請確認拼字');return;}
       if(!document.getElementById('relay-nid-class').value){alert('請選擇大隊接力隸屬戰隊');return;}
       if(document.getElementById('relay-nid-class').value==='NID RUN CLUB戰隊' && !document.getElementById('relay-nid-sub-team').value){alert('請選擇大隊接力分隊');return;}
       var rNames=[...document.querySelectorAll('#team-details-relay .member-row input')];
@@ -640,6 +643,7 @@ document.getElementById('reg-form').addEventListener('submit',function(e){
       if(!document.getElementById('weight-team-name').value.trim()){alert('請填寫趣味接力隊伍名稱');return;}
       if(!document.getElementById('weight-captain-name').value.trim()){alert('請填寫趣味接力隊長姓名');return;}
       if(!document.getElementById('weight-captain-email').value.trim()){alert('請填寫趣味接力隊長信箱');return;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('weight-captain-email').value.trim())){alert('趣味接力隊長信箱格式不正確，請確認拼字');return;}
       if(!document.getElementById('weight-nid-class').value){alert('請選擇趣味接力隸屬戰隊');return;}
       if(document.getElementById('weight-nid-class').value==='NID RUN CLUB戰隊' && !document.getElementById('weight-nid-sub-team').value){alert('請選擇趣味接力分隊');return;}
       var wNames=[...document.querySelectorAll('#team-details-weight .member-row input')];
